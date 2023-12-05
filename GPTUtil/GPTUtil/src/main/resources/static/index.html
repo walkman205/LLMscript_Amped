@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="layui/layui.js"></script>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="layui/css/layui.css">
+</head>
+<body>
+
+<div style="position: absolute;width: 100%;height: 6%;background-color: #2E2D3C">
+    <span style="color: red;font-size: 30px;font-weight: bold;position: absolute;top:15%;left: 2%">PROMPT TEST UTIL</span>
+</div>
+`
+<div style="position: absolute;width: 55%;height: 15%;top:10%">
+    <label class="layui-form-label">Path:</label>
+    <div class="layui-input-block">
+        <input id="path" type="text" name="title" required lay-verify="required" placeholder="Please enter the path to the resource folder
+" autocomplete="off" class="layui-input">
+    </div>
+    <!--<form class="layui-form" action="" style="position: absolute;top:40%;left:0%">-->
+    <!--<div class="layui-form-item">-->
+    <!--<div class="layui-input-block">-->
+    <!--<input id="check1" type="checkbox" name="like[write]" title="Gpt3.5" checked>-->
+    <!--<input id="check2" type="checkbox" name="like[write]" title="Gpt4" checked>-->
+    <!--<input id="check3" type="checkbox" name="like[read]" title="Gpt4File" checked>-->
+    <!--<input id="check4" type="checkbox" name="like[dai]" title="bz7" checked>-->
+    <!--<input id="check5" type="checkbox" name="like[dai]" title="bz8" checked>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</form>-->
+    <div>
+        <button class="layui-btn" style="position: absolute;left: 70%;top:40%;width: 100px" onclick="check()">check
+        </button>
+    </div>
+    <div>
+        <button id="generate" class="layui-btn layui-btn-disabled"
+                style="background-color: #5FB878;position: absolute;left: 85%;top:40%;width: 100px"
+                onclick="generateSocket()">generate
+        </button>
+    </div>
+
+    <div style="position: absolute;width: 42%;height: 70%;top:85%;left: 5%">
+        <div class="layui-card">
+            <div class="layui-card-header">Files</div>
+            <div id="filesShow" class="layui-card-body">
+
+            </div>
+        </div>
+    </div>
+
+    <div style="position: absolute;width: 42%;height: 70%;top:85%;left: 58%">
+        <div class="layui-card">
+            <div class="layui-card-header">Progress</div>
+            <div id="show" class="layui-card-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="position: absolute;width: 38%;height: 85%;top:10%;left:60%">
+    <textarea style="height: 95%" id="prePrompt" type="text" name="title" required lay-verify="required"
+              placeholder="Please input prePrompt" autocomplete="off" class="layui-input"></textarea>
+</div>
+
+
+<script>
+    //check
+    function check() {
+        $.ajax({
+            url: "http://127.0.0.1:9999/gpt/check?path=" + btoa($("#path").val()),
+            type: "GET",
+            headers: {'Content-Type': 'application/json'},
+            success: function (res) {
+                if (res.code == 1) {
+                    //找到目标下文件夹则展示
+                    layer.msg("Find " + res.data.length + " file");
+                    var files = res.data;
+                    var str = "";
+                    for (let i in files) {
+                        var currentFile = files[i];
+                        str += currentFile + "<br>";
+                    }
+                    $("#filesShow").html(str);
+                    $("#generate").removeClass("layui-btn-disabled").attr("disabled", false);
+                } else {
+                    //目标文件未找到或无符合条件的文件
+                    layer.msg(res.msg);
+                    $("#filesShow").html("");
+                    $("#generate").addClass("layui-btn-disabled");
+                }
+            },
+            error: function (e) {
+                console.info("error: " + e.responseText);
+            }
+        })
+    };
+
+
+    //generateSocket
+    function generateSocket() {
+        const socket = new WebSocket("ws://127.0.0.1:9999/chat");
+        socket.onmessage = function (event) {
+            console.log("Received message:", event.data);
+            var data = event.data;
+            var str = $("#show").html();
+            if (data != null) {
+                if (str.indexOf("*") == -1) {
+                    $("#show").html(data);
+                } else {
+                    $("#show").html(str + " <br> " + data);
+                }
+            }
+        };
+        socket.onopen = function (event) {
+            console.log("WebSocket connection opened:", event);
+            var prePrompt = $("#prePrompt").val();
+            if (prePrompt != null && prePrompt != "") {
+                socket.send(prePrompt);
+                console.log("Sent message:", message);
+            } else {
+                layer.msg("Please input preprompt!");
+            }
+        };
+
+
+    }
+
+    //generate
+    function generate() {
+
+        $.ajax({
+            url: "http://127.0.0.1:9999/gpt/generate",
+            type: "GET",
+            headers: {'Content-Type': 'application/json'},
+            success: function (res) {
+                layer.msg(res.msg);
+                if (res.code == 1) {
+                    var check1 = $("#check1").prop("value");
+                    var check2 = $("#check2").val();
+                    var check3 = $("#check3").val();
+                    var check4 = $("#check4").val();
+                    var check5 = $("#check5").val();
+                    console.log(check1 + check2 + check3 + check4 + check5)
+                } else {
+
+                }
+            },
+            error: function (e) {
+                console.info("error: " + e.responseText);
+            }
+        })
+    }
+
+</script>
+
+</body>
+</html>
