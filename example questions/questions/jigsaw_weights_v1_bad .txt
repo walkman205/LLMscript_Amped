@@ -1,0 +1,22 @@
+Version A:
+You and your partner have three metal blocks. They all have the same weight. You also have scales and some weights: three weighing 1 gram each, one weighing 5 grams, and 2 weighing 10 grams each.
+Assuming the weight of each metal block is a whole number of grams, what other information would be enough to determine it?
+
+To answer this question, you and your partner may each make ONE selections from the following list of values. After you submit your selection, the values you selected will be revealed to you. Use this information to provide your answer in the box below.
+
+a) Compare one metal block to all weights together
+b) Compare three metal blocks to all weights together
+c) Compare one metal block to the 5 gram weight
+d) Compare three metal block to the 5 gram weight
+
+
+Version B:
+You and your partner have three metal blocks. They all have the same weight. You also have scales and some weights: three weighing 1 gram each, one weighing 5 grams, and 2 weighing 10 grams each.
+Assuming the weight of each metal block is a whole number of grams, what other information would be enough to determine it?
+
+To answer this question, you and your partner may each make ONE selections from the following list of values. After you submit your selection, the values you selected will be revealed to you. Use this information to provide your answer in the box below.
+
+a) Compare one metal block to all weights together
+b) Compare three metal blocks to all weights together
+c) Compare one metal block to the 5 gram weight
+d) Compare three metal block to the 5 gram weight

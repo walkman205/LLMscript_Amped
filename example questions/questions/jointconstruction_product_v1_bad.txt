@@ -1,0 +1,5 @@
+Version A:
+Find two numbers whose product is 300 and their sum is maximal.
+
+Version B:
+Find two numbers whose product is 300 and their sum is maximal.

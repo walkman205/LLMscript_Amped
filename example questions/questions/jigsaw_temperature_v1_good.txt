@@ -1,0 +1,7 @@
+Version A:
+[image describing the highest temperatures measured every day of the week in a certain week in New York City.]
+You have a figure describing temperatures in one week in New York City. On which day was the difference between the highest and lowest temperatures the highest?
+
+Version B:
+[image describing the lowest temperatures measured every day of the week in a certain week in New York City.]
+You have a figure describing temperatures in one week in New York City. On which day was the difference between the highest and lowest temperatures the highest?

@@ -1,0 +1,5 @@
+Version A:
+A factory produces 100,000 batteries each day. A sample of 200 batteries is drawn from today's production line, and 2 batteries fail the quality test. What is the best estimate for the total number of faulty batteries produced today?
+
+Version B:
+A factory produces 100,000 batteries each day. A sample of 200 batteries is drawn from today's production line, and 2 batteries fail the quality test. What is the best estimate for the total number of faulty batteries produced today?

@@ -1,0 +1,26 @@
+Version A:
+In a school fund-raiser, students in class A and class B sold boxes of cookies. What was the average number (arithmetic mean) of boxes of cookies sold by all students in both classes?
+
+To answer this question, you and your partner may each make TWO selections from the following list of values. After you submit your selection, the values you selected will be revealed to you. Use this information to provide your answer in the box below.
+
+A. Average number of boxes of cookies sold in class A
+B. Total number of boxes of cookies sold in class A
+C. Average number of boxes of cookies sold in class B
+D. Total number of boxes of cookies sold in class B
+E. Total number of cookies per box
+F. Total number of students in class A
+G. Total number of students in class B
+
+
+Version B:
+In a school fund-raiser, students in class A and class B sold boxes of cookies. What was the average number (arithmetic mean) of boxes of cookies sold by all students in both classes?
+
+To answer this question, you and your partner may each make TWO selections from the following list of values. After you submit your selection, the values you selected will be revealed to you. Use this information to provide your answer in the box below.
+
+A. Average number of boxes of cookies sold in class A
+B. Total number of boxes of cookies sold in class A
+C. Average number of boxes of cookies sold in class B
+D. Total number of boxes of cookies sold in class B
+E. Total number of cookies per box
+F. Total number of students in class A
+G. Total number of students in
