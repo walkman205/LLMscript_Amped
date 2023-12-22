@@ -1,0 +1,2 @@
+Verdict: Pass
+Reason: This exercise requires collaboration between Student A and Student B. Each student is only shown a partial set of information (the chips shown above are not shown to the other student), and they need to communicate their information to each other in order to calculate the probability of drawing a chip with an even number. Student A needs to let Student B know which chips are shown to them and Student B needs to let Student A know which chips are shown to them. Only by combining their information can they calculate the probability.

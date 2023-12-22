@@ -1,0 +1,3 @@
+Verdict: Pass
+
+Reason: In order to determine the day on which the difference between the highest and lowest temperatures was the highest, Student A needs to know the highest temperatures recorded each day of the week, which are provided in Version A. On the other hand, Student B needs to know the lowest temperatures recorded each day of the week, which are provided in Version B. Therefore, both students need to collaborate and share their information in order to determine the day with the highest temperature difference.

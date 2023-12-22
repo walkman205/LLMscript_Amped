@@ -1,0 +1,2 @@
+Verdict: Pass
+Reason: This exercise requires collaboration between Student A and Student B in order to solve the problem. Student A has information about the sample size and the number of faulty batteries in the sample, while Student B has information about the total number of batteries produced. They need to communicate with each other to estimate the total number of faulty batteries produced.

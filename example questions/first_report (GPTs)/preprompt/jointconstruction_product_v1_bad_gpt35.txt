@@ -1,0 +1,2 @@
+Verdict: Pass
+Reason: In order to find the two numbers whose product is 300 and their sum is maximal, Student A and Student B need to communicate and collaborate. They will need to consider different pairs of numbers that multiply to 300 and discuss their sum in order to determine the pair with the maximal sum. They cannot solve the problem independently without exchanging information.

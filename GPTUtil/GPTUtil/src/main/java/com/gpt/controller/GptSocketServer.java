@@ -33,6 +33,6 @@ public class GptSocketServer {
     @OnMessage
     public void onMessage(String message, Session session) {
         System.out.println("Received message from " + session.getId() + ": " + message);
-        gptServiceImpl.generate(message, session);
+        gptServiceImpl.generate(session);
     }
 }

@@ -1,0 +1,3 @@
+Verdict: Pass
+
+Reason: The exercise requires collaboration between Student A and Student B since they have to coordinate their responses after choosing different options among the allowed selections. Each student individually will not be able to solve the problem, because they can only choose one piece of information from the list. For example, if one student selects "What is n?" and the other selects "How many black tiles were used?", they would both need to communicate their obtained information to find out how many red blocks Pat will use in her n+1 attempt. Thus, this exercise relies on the mutual exchange of information between the two students to generate a solution, meeting the exercise's requirement.

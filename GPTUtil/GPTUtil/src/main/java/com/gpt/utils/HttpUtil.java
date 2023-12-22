@@ -3,7 +3,6 @@ package com.gpt.utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.sun.xml.internal.ws.encoding.MimeMultipartParser;
 import lombok.Data;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
@@ -36,7 +35,7 @@ public class HttpUtil {
                     .setConnectionRequestTimeout(60000)
                     .setConnectTimeout(60000)  // 连接超时时间为30秒
                     .setSocketTimeout(60000)   // 套接字超时时间为30秒
-//                    .setProxy(proxy)
+//                    .setProxy(proxy) //TODO 代理
                     .build();
 
             HttpClient httpClient = HttpClients.custom()

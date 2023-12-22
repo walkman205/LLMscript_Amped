@@ -14,82 +14,154 @@
 </div>
 `
 <div style="position: absolute;width: 55%;height: 15%;top:10%">
-    <label class="layui-form-label">Path:</label>
+    <label class="layui-form-label">Questions:</label>
     <div class="layui-input-block">
-        <input id="path" type="text" name="title" required lay-verify="required" placeholder="Please enter the path to the resource folder
+        <input id="questionPath" type="text" name="title" required lay-verify="required" placeholder="Please enter the question path to the resource folder
 " autocomplete="off" class="layui-input">
     </div>
-    <!--<form class="layui-form" action="" style="position: absolute;top:40%;left:0%">-->
-    <!--<div class="layui-form-item">-->
-    <!--<div class="layui-input-block">-->
-    <!--<input id="check1" type="checkbox" name="like[write]" title="Gpt3.5" checked>-->
-    <!--<input id="check2" type="checkbox" name="like[write]" title="Gpt4" checked>-->
-    <!--<input id="check3" type="checkbox" name="like[read]" title="Gpt4File" checked>-->
-    <!--<input id="check4" type="checkbox" name="like[dai]" title="bz7" checked>-->
-    <!--<input id="check5" type="checkbox" name="like[dai]" title="bz8" checked>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</form>-->
+
+    <div style="margin-top: 20px">
+        <label class="layui-form-label">Preprompt:</label>
+        <div class="layui-input-block">
+            <input id="prepromptPath" type="text" name="title" required lay-verify="required" placeholder="Please enter the preprompt path to the resource folder
+" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+
+    <form class="layui-form" action="" style="position: absolute;top:100%;left:0%">
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input id="gpt3" type="checkbox" name="like[write]" title="gpt3.5" checked>
+                <input id="gpt4" type="checkbox" name="like[write]" title="gpt4" checked>
+                <input id="gpt4v" type="checkbox" name="like[read]" title="gpt4v">
+            </div>
+        </div>
+    </form>
+
+    <!--<button id="folderPathButton" style="position: absolute;left: 55%;top:40%;width: 100px" class="layui-btn">选择文件夹-->
+    <!--</button>-->
+
     <div>
-        <button class="layui-btn" style="position: absolute;left: 70%;top:40%;width: 100px" onclick="check()">check
+        <button class="layui-btn" style="position: absolute;left: 70%;top:100%;width: 100px" onclick="check()">check
         </button>
     </div>
     <div>
         <button id="generate" class="layui-btn layui-btn-disabled"
-                style="background-color: #5FB878;position: absolute;left: 85%;top:40%;width: 100px"
+                style="background-color: #5FB878;position: absolute;left: 85%;top:100%;width: 100px"
                 onclick="generateSocket()">generate
         </button>
     </div>
 
-    <div style="position: absolute;width: 42%;height: 70%;top:85%;left: 5%">
-        <div class="layui-card">
-            <div class="layui-card-header">Files</div>
-            <div id="filesShow" class="layui-card-body">
+</div>
 
-            </div>
-        </div>
-    </div>
+<!--<div style="position: absolute;width: 52%;height: 30%;top:33%;left: 3%">-->
+         <!--<textarea style="height: 95%" id="prePrompt" type="text" name="title" required lay-verify="required"-->
+                   <!--placeholder="Please input prePrompt" autocomplete="off" class="layui-input"></textarea>-->
+<!--</div>-->
 
-    <div style="position: absolute;width: 42%;height: 70%;top:85%;left: 58%">
-        <div class="layui-card">
-            <div class="layui-card-header">Progress</div>
-            <div id="show" class="layui-card-body">
-
-            </div>
+<div style="position: absolute;width: 25%;height: 62%;top:33%;left: 3%">
+    <div class="layui-card" style="height:100%;width: 100%;overflow-y: scroll;border: 2px solid #e6e2f1;">
+        <div class="layui-card-header">Question Files</div>
+        <div id="questionShow" class="layui-card-body">
         </div>
     </div>
 </div>
 
+<div style="position: absolute;width: 25%;height: 62%;top:33%;left: 30%">
+    <div class="layui-card" style="height:100%;width: 100%;overflow-y: scroll;border: 2px solid #e6e2f1;">
+        <div class="layui-card-header">Preprompt Files</div>
+        <div id="prepromptShow" class="layui-card-body">
+        </div>
+    </div>
+</div>
 
-<div style="position: absolute;width: 38%;height: 85%;top:10%;left:60%">
-    <textarea style="height: 95%" id="prePrompt" type="text" name="title" required lay-verify="required"
-              placeholder="Please input prePrompt" autocomplete="off" class="layui-input"></textarea>
+<div style="position: absolute;width: 38%;height: 85%;top:10%;left:60%;">
+    <div class="layui-card" style="overflow-y: scroll;width: 100%;height: 100%;border: 2px solid #e6e2f1;">
+        <div class="layui-card-header">Progress</div>
+        <div id="show" class="layui-card-body">
+        </div>
+    </div>
 </div>
 
 
 <script>
+    $(document).ready(function () {
+        $('#folderPathButton').click(function () {
+            // 弹出文件选择对话框
+            $(`<input type="file" nwdirectory>`).change(function () {
+                var folderPath = $(this).val();
+                console.log('文件夹路径：' + folderPath);
+            }).click();
+        });
+    })
+
     //check
     function check() {
+        var questionPath = $("#questionPath").val();
+        var prepromptPath = $("#prepromptPath").val();
+
+        if (questionPath == null || questionPath == '') {
+            layer.msg("Please input question path!");
+            return;
+        }
+        if (prepromptPath == null || prepromptPath == '') {
+            layer.msg("Please input preprompt path!");
+            return;
+        }
+
+        var checkbox1 = document.getElementById("gpt3");
+        var isChecked1 = checkbox1.checked;
+
+        var checkbox2 = document.getElementById("gpt4");
+        var isChecked2 = checkbox2.checked;
+
+        var checkbox3 = document.getElementById("gpt4v");
+        var isChecked3 = checkbox3.checked;
+
+        var checkData = {
+            gpt3: isChecked1,
+            gpt4: isChecked2,
+            gpt4v: isChecked3
+        };
+
+        var data = {
+            questionPath: questionPath,
+            prepromptPath: prepromptPath,
+            checkData: checkData
+        };
+
+        console.log(data)
+
         $.ajax({
-            url: "http://127.0.0.1:9999/gpt/check?path=" + btoa($("#path").val()),
-            type: "GET",
+            url: "http://127.0.0.1:9999/gpt/check",
+            type: "POST",
+            data: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'},
             success: function (res) {
                 if (res.code == 1) {
                     //找到目标下文件夹则展示
-                    layer.msg("Find " + res.data.length + " file");
-                    var files = res.data;
-                    var str = "";
-                    for (let i in files) {
-                        var currentFile = files[i];
-                        str += currentFile + "<br>";
+                    var questions = res.data.questions;
+                    var preprompts = res.data.preprompts;
+                    layer.msg("Find " + questions.length + " question," + preprompts.length + " preprompt");
+                    var questionStr = "";
+                    for (let i in questions) {
+                        var currentFile = questions[i];
+                        questionStr += currentFile + "<br>";
                     }
-                    $("#filesShow").html(str);
+                    $("#questionShow").html(questionStr);
+                    var prepromtStr = "";
+                    for (let i in preprompts) {
+                        var currentFile = preprompts[i];
+                        prepromtStr += currentFile + "<br>";
+                    }
+                    $("#prepromptShow").html(prepromtStr);
                     $("#generate").removeClass("layui-btn-disabled").attr("disabled", false);
                 } else {
                     //目标文件未找到或无符合条件的文件
                     layer.msg(res.msg);
-                    $("#filesShow").html("");
+                    $("#questionShow").html("");
+                    $("#prepromptShow").html("");
                     $("#generate").addClass("layui-btn-disabled");
                 }
             },
@@ -117,13 +189,14 @@
         };
         socket.onopen = function (event) {
             console.log("WebSocket connection opened:", event);
-            var prePrompt = $("#prePrompt").val();
-            if (prePrompt != null && prePrompt != "") {
-                socket.send(prePrompt);
-                console.log("Sent message:", message);
-            } else {
-                layer.msg("Please input preprompt!");
-            }
+            socket.send("");
+            // var prePrompt = $("#prePrompt").val();
+            // if (prePrompt != null && prePrompt != "") {
+            //     socket.send(prePrompt);
+            //     console.log("Sent message:", message);
+            // } else {
+            //     layer.msg("Please input preprompt!");
+            // }
         };
 
 

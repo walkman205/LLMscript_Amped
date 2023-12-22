@@ -1,0 +1,3 @@
+gpt35Key=sk-xxxxxxxxxxxxxxxxxxx
+gpt4Key=sk-xxxxxxxxxxxxxxxx
+gpt4FileKey=sk-xxxxxxxxxxxxxx

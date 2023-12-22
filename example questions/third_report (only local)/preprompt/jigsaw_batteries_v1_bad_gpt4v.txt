@@ -1,0 +1,2 @@
+ Verdict: fail
+Reason: The exercise version presented to Student A (Version A) and the exercise version presented to Student B (Version B) are identical. As such, there is no need for Student A and Student B to collaborate in order to solve the problem. They can work independently and still each get the correct answer by using the information provided in Version A or Version B.

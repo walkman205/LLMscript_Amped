@@ -16,6 +16,9 @@
                 <configuration>
                     <source>8</source>
                     <target>8</target>
+                    <compilerArguments>
+                       <bootclasspath>${java.home}/jre/lib/rt.jar</bootclasspath>
+                    </compilerArguments>
                 </configuration>
             </plugin>
         </plugins>

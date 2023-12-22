@@ -10,7 +10,7 @@ public class GptHttpResponse {
     private String msg;
     private Object data;
 
-    public static GptHttpResponse success(Object data){
+    public static GptHttpResponse success(Object data) {
         GptHttpResponse gptHttpResponse = new GptHttpResponse();
         gptHttpResponse.code = "1";
         gptHttpResponse.msg = "SUCCESS";
@@ -18,10 +18,11 @@ public class GptHttpResponse {
         return gptHttpResponse;
     }
 
-    public static GptHttpResponse fail(String msg, List data) {
+    public static GptHttpResponse fail(String msg, Object data) {
         GptHttpResponse gptHttpResponse = new GptHttpResponse();
         gptHttpResponse.code = "0";
         gptHttpResponse.msg = msg;
         gptHttpResponse.data = data;
-        return gptHttpResponse;    }
+        return gptHttpResponse;
+    }
 }

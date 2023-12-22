@@ -1,0 +1,3 @@
+Verdict: Pass
+
+Reason: The exercise requires students A and B to collaborate to solve the problem because student A needs information about the total daily production of the factory from student B and student B needs information about the sample size from student A. With these two pieces of information, they can calculate the proportion of faulty batteries in the sample and use this proportion to estimate the total number of faulty batteries in the entire production. This exercise indeed requires collaboration and communication, and it will be impossible for students to answer correctly by working independently, so the exercise passes.

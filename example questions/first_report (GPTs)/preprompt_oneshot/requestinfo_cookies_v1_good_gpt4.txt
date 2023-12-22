@@ -1,0 +1,5 @@
+class B
+
+Verdict: Pass
+
+Reason: This exercise requires communication and collaboration between Student A and Student B. For each student to determine the average number of boxes of cookies sold by all students in both classes, the students would need to both choose two different options. If for example, Student A selects "B. Total number of boxes of cookies sold in class A" and "F. Total number of students in class A", then Student B could select "D. Total number of boxes of cookies sold in class B" and "G. Total number of students in class B". By sharing their information, they could then calculate the total boxes sold by the total number of students to get the average. The calculation is impossible without collaboration as each student is only allowed to make two selections from the list.

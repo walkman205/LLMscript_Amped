@@ -1,0 +1,8 @@
+Verdict: Pass
+Reason: The exercise requires collaboration between Student A and Student B to find the best estimate for the total number of faulty batteries produced today.
+
+To solve the problem, Student A needs to know the number of batteries in the sample (200) and the number of faulty batteries in the sample (2). They can then calculate the proportion of faulty batteries in the sample (2/200) and use this proportion to estimate the total number of faulty batteries produced today based on the information they have.
+
+On the other hand, Student B needs to know the total number of batteries produced each day (100,000) and the number of faulty batteries in the sample (2). They can then calculate the proportion of faulty batteries in the sample (2/200) and use this proportion to estimate the total number of faulty batteries produced today based on the information they have.
+
+Both Student A and Student B need to communicate their respective information to each other in order to solve the problem collaboratively.

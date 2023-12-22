@@ -1,0 +1,5 @@
+Version B:
+
+Verdict: Pass
+
+Reason: This exercise meets the requirement because the students must communicate to come up with the correct solution. Each can only select two values from the given list. To find the average number of boxes sold by all students in both classes, they need the total number of boxes sold in both classes (Values B and D) and the total number of students in both classes (Values F and G). Since each student can only select two values, they have to communicate and coordinate their choices to get all the necessary information.

@@ -1,0 +1,3 @@
+Verdict: Pass
+
+Reason: To accurately determine the probability that Mary draws a chip with an even number, each student needs to know both the number of total chips and the number of even-numbered chips. Student A knows the number of even-numbered chips and total chips in their set, and Student B knows this information for their set, but neither knows the full total or the total number of even-numbered chips without communicating with the other. Thus, A and B must collaborate with and share information with each other to find the probability.
