@@ -1,0 +1,2 @@
+Verdict: pass
+Reason: This exercise requires collaboration between Student A and Student B in order to find a possible value for T1 and T2. Each student only has partial information (either T1 or T2) and cannot determine the correct times without communicating with their partner. Even if the students tried to work independently, they would not be able to find the correct times, as the exercise specifically states that they need to work together to come up with a possible value for T1 and T2.

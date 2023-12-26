@@ -1,0 +1,2 @@
+Verdict: pass
+Reason: In both versions of the exercise, the students are given a subset of the total chips, and they need to determine the probability of drawing an even number. To do this, they will need to communicate with each other to share the information about the chips they have. If they work independently and without communicating, they would not be able to determine the total number of chips or the probability of drawing an even number. Therefore, this exercise requires collaboration between the students.

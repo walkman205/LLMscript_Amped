@@ -1,0 +1,2 @@
+Verdict: pass
+Reason: This exercise passes because both students need to collaborate to determine the best course of action. Students A and B have different information available to them (which is complementary), and they must communicate with each other to make a decision. The solution process involves understanding that by combining their selections, they can effectively measure the weight of the blocks with the tools available. They cannot solve the problem correctly without some form of communication and collaboration.

@@ -1,0 +1,2 @@
+Verdict: fail
+Reason: This exercise does not require collaboration between the students, as both versions of the problem contain the exact same information and choices. Each student can independently select their two options from the list, and then use those selections to calculate the average number of boxes of cookies sold by all students in both classes. There is no need for communication between the students in order to solve the problem.

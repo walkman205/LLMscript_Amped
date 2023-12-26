@@ -1,0 +1,2 @@
+Verdict: fail
+Reason: This exercise fails the requirement because each student can solve the problem independently without needing to communicate or collaborate with the other. Both students are essentially doing the same task of comparing temperature highs and lows in the given week. They can each identify the highest temperature difference on their own based on the information they have. No collaboration between students is necessary to answer this question correctly.

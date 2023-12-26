@@ -1,0 +1,2 @@
+Verdict: fail
+Reason: This exercise fails the requirement because it is possible for each student to solve the problem independently without having to communicate or collaborate with the other. Both students can consider different time intervals that are 600 degrees apart on the clock and enter their respective time values. They don't need to share any information with each other to get the correct answer.

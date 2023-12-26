@@ -18,13 +18,14 @@ import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 
 @Component
 @Data
 public class HttpUtil {
-    public String post(String url, String key, String json) {
+    public String post(String url, String key, String json) throws IOException {
         System.out.println("发送json："+json);
         StringBuilder res = new StringBuilder();
         String content = "";
@@ -79,6 +80,7 @@ public class HttpUtil {
              content = ((JSONObject) (((JSONObject) ((JSONArray) repMap.get("choices")).get(0)).get("message"))).get("content").toString();
         } catch (Exception e) {
             e.printStackTrace();
+            throw e;
         }
         return content;
     }

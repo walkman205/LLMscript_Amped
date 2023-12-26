@@ -1,0 +1,2 @@
+Verdict: pass
+Reason: This exercise requires collaboration between Student A and Student B to find the two numbers. Working independently, they would not have enough information to find both the product and the sum. If they communicate and work together, they can determine that the two numbers are 15 and 20, since 15*20=300 and 15+20=35 is the maximal sum. However, neither Student A nor Student B would be able to figure this out without communicating with their partner.

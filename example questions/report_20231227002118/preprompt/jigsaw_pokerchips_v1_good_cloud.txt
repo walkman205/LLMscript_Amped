@@ -1,0 +1,2 @@
+Verdict: pass
+Reason: In order to solve this problem, Student A and Student B need to communicate with each other to determine the number of even chips overall and the total number of chips. By doing so, they can calculate the probability that Mary draws an even number. It is not possible for them to find the correct answer independently without communicating.

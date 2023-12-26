@@ -13,7 +13,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="GPTUtil" options="-bootclasspath $USER_HOME$/.jdks/openjdk-21.0.1/jre/lib/rt.jar" />
+      <module name="GPTUtil" options="-bootclasspath $PROJECT_DIR$/../../../../../../JDK8/jre/jre/lib/rt.jar" />
     </option>
   </component>
 </project>

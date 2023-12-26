@@ -1,3 +1,5 @@
-gpt35Key=sk-xxxxxxxxxxxxxxxxxxx
-gpt4Key=sk-xxxxxxxxxxxxxxxx
-gpt4FileKey=sk-xxxxxxxxxxxxxx
+gpt35Key=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+gpt4Key=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+gpt4FileKey=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+localUrl=http://localhost:1234/v1/chat/completions
+cloudUrl=https://!!!somethinghere!!!-5000.proxy.runpod.net/v1/chat/completions

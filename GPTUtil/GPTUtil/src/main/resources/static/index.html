@@ -32,9 +32,11 @@
     <form class="layui-form" action="" style="position: absolute;top:100%;left:0%">
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <input id="gpt3" type="checkbox" name="like[write]" title="gpt3.5" checked>
-                <input id="gpt4" type="checkbox" name="like[write]" title="gpt4" checked>
+                <input id="gpt3" type="checkbox" name="like[write]" title="gpt3.5">
+                <input id="gpt4" type="checkbox" name="like[write]" title="gpt4">
                 <input id="gpt4v" type="checkbox" name="like[read]" title="gpt4v">
+                <input id="local" type="checkbox" name="like[read]" title="local">
+                <input id="cloud" type="checkbox" name="like[read]" title="cloud">
             </div>
         </div>
     </form>
@@ -110,19 +112,26 @@
             return;
         }
 
-        var checkbox1 = document.getElementById("gpt3");
-        var isChecked1 = checkbox1.checked;
+        gpt3
+        gpt4
+        gpt4v
+        local
+        cloud
 
-        var checkbox2 = document.getElementById("gpt4");
-        var isChecked2 = checkbox2.checked;
 
-        var checkbox3 = document.getElementById("gpt4v");
-        var isChecked3 = checkbox3.checked;
+        var gpt3 = document.getElementById("gpt3").checked;
+        var gpt4 = document.getElementById("gpt4").checked;
+        var gpt4v = document.getElementById("gpt4v").checked;
+        var local = document.getElementById("local").checked;
+        var cloud = document.getElementById("cloud").checked;
+
 
         var checkData = {
-            gpt3: isChecked1,
-            gpt4: isChecked2,
-            gpt4v: isChecked3
+            gpt3: gpt3,
+            gpt4: gpt4,
+            gpt4v: gpt4v,
+            local: local,
+            cloud: cloud
         };
 
         var data = {

@@ -1,0 +1,2 @@
+Verdict: fail
+Reason: This exercise does not require Student A and Student B to collaborate in order to solve the problem. Each student can work independently by making any two selections from the given list of values. After submitting their selections, they can compare their answers and reveal the selections they made. If their selections include enough information to calculate the average number of boxes of cookies sold by all students in both classes, they can provide their answer without needing to communicate or collaborate with each other.

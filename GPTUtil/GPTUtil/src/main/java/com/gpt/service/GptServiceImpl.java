@@ -123,6 +123,10 @@ public class GptServiceImpl {
         gptAiUtil.setGpt35Key(gpt35Key);
         gptAiUtil.setGpt4Key(gpt4Key);
         gptAiUtil.setGpt4FileKey(gpt4FileKey);
+        String localUrl = properties.getProperty("localUrl");
+        String cloudUrl = properties.getProperty("cloudUrl");
+        gptAiUtil.setLocalUrl(localUrl);
+        gptAiUtil.setCloudUrl(cloudUrl);
 
         //******2.循环读取preprompt文件
         for (File prepromptFile : prepromptFiles) {
@@ -234,7 +238,7 @@ public class GptServiceImpl {
                 }
 
                 //gpt4.0
-                if (checkBean.getCheckData().get("gpt3") != null && checkBean.getCheckData().get("gpt4")) {
+                if (checkBean.getCheckData().get("gpt4") != null && checkBean.getCheckData().get("gpt4")) {
                     try {
                         System.out.println("开始调用chatgpt4.0");
                         String sendRes = gptAiUtil.send(2, promptStr.toString(), prePrompt, promptFile);
@@ -312,14 +316,89 @@ public class GptServiceImpl {
                     }
                 }
 
-//            try {
-//                System.out.println("开始调用chatgpt4.0图片文件形式");
-//                gptAiUtil.send(3, file.getPath() + "\\report\\gpt4_report.txt", promptStr.toString(), prePromptStr.toString(), promptFile);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                System.out.println(file.getName() + "调用模型gpt4处理失败");
-//                continue;
-//            }
+
+                //local
+                if (checkBean.getCheckData().get("local") != null && checkBean.getCheckData().get("local")) {
+                    try {
+                        System.out.println("开始调用local");
+                        String sendRes = gptAiUtil.send(4, promptStr.toString(), prePrompt, promptFile);
+                        try {
+                            if (sendRes != null) {
+                                Files.write(Paths.get(prepromptReportPath + File.separator + name + "_local.txt"), sendRes.getBytes());
+                            } else {
+                                try {
+                                    session.getBasicRemote().sendText(name + " 调用模型local处理失败");
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                }
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            System.out.println("写入失败");
+                            try {
+                                session.getBasicRemote().sendText(name + " 调用模型local处理失败");
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                        }
+                        //获取模型结果
+                        String result = sendRes.substring(sendRes.indexOf("Verdict: ") + 9, sendRes.indexOf("Verdict: ") + 13);
+                        reportMap.put("local", result);
+                        session.getBasicRemote().sendText(name + " 调用模型local处理成功");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        System.out.println(name + "调用模型local处理失败");
+                        try {
+                            session.getBasicRemote().sendText(name + " 调用模型local处理失败，原因：" + e.getMessage());
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                }
+
+
+
+                //cloud
+                if (checkBean.getCheckData().get("cloud") != null && checkBean.getCheckData().get("cloud")) {
+                    try {
+                        System.out.println("开始调用cloud");
+                        String sendRes = gptAiUtil.send(5, promptStr.toString(), prePrompt, promptFile);
+                        try {
+                            if (sendRes != null) {
+                                Files.write(Paths.get(prepromptReportPath + File.separator + name + "_cloud.txt"), sendRes.getBytes());
+                            } else {
+                                try {
+                                    session.getBasicRemote().sendText(name + " 调用模型cloud处理失败");
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                }
+                            }
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            System.out.println("写入失败");
+                            try {
+                                session.getBasicRemote().sendText(name + " 调用模型cloud处理失败");
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                        }
+                        //获取模型结果
+                        String result = sendRes.substring(sendRes.indexOf("Verdict: ") + 9, sendRes.indexOf("Verdict: ") + 13);
+                        reportMap.put("cloud", result);
+                        session.getBasicRemote().sendText(name + " 调用模型cloud处理成功");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        System.out.println(name + "调用模型cloud处理失败");
+                        try {
+                            session.getBasicRemote().sendText(name + " 调用模型cloud处理失败，原因：" + e.getMessage());
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                }
+
+
+
 
             }
 

@@ -1,0 +1,2 @@
+Verdict: fail
+Reason: This exercise fails the requirement since each student can solve the problem without needing to communicate or collaborate with the other. Both students have the same problem to solve, and they do not hold complementary information. Each student can calculate the proportion of faulty batteries from the sample and then extrapolate that proportion to the total number of batteries produced, independently of the other student.

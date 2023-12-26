@@ -1,0 +1,2 @@
+Verdict: fail
+Reason: This exercise does not meet the criterion for collaboration because each student can independently determine the highest and lowest temperatures for their respective images and then easily compare them to find the day with the highest difference between the highest and lowest temperatures. There is no need for them to communicate with each other in order to get the correct answer.

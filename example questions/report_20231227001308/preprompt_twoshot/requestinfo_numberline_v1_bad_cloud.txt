@@ -1,0 +1,2 @@
+Verdict: pass
+Reason: This exercise meets the requirement because each student can only provide partial information about the numbers A and B, and they need to communicate with each other to determine the product N. Student A selects whether A is positive or negative and whether A > 1, while Student B selects whether B is positive or negative and whether B > 1. By sharing this information, they can deduce the sign of N, and subsequently, whether N is greater than 1. Without communication, it is impossible to determine the correct answer.

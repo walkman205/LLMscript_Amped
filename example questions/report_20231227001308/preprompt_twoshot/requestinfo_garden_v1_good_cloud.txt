@@ -1,0 +1,2 @@
+Verdict: Pass
+Reason: This exercise meets the criteria for collaboration because both students need to communicate with each other to determine what information is needed to solve the problem. Student A may not know the dimensions of the path, and Student B may not know the length of X or Y. By discussing their options and sharing the information they have, they can come to a conclusion about what information they need to find the area of the shaded portion of the garden.
