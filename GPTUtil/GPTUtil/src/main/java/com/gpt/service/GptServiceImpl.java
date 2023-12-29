@@ -468,8 +468,8 @@ public class GptServiceImpl {
                             .append("\"").append(reportMap.get("forecast") != null ? reportMap.get("forecast") : "").append("\",")
                             .append("\"").append(reportMap.get("gpt3.5") != null ? reportMap.get("gpt3.5") : "").append("\",")
                             .append("\"").append(reportMap.get("gpt4.0") != null ? reportMap.get("gpt4.0") : "").append("\",")
-                            .append("\"").append(reportMap.get("gpt4V") != null ? reportMap.get("gpt4V") : "").append("\"\n")
-                            .append("\"").append(reportMap.get("local") != null ? reportMap.get("local") : "").append("\"\n")
+                            .append("\"").append(reportMap.get("gpt4V") != null ? reportMap.get("gpt4V") : "").append("\",")
+                            .append("\"").append(reportMap.get("local") != null ? reportMap.get("local") : "").append("\",")
                             .append("\"").append(reportMap.get("cloud") != null ? reportMap.get("cloud") : "").append("\"\n");
                 }
 
