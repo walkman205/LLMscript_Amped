@@ -38,6 +38,17 @@ public class GptController {
         }
     }
 
+    @GetMapping("stop")
+    private GptHttpResponse stop() {
+        try {
+            gptServiceImpl.stop();
+            return GptHttpResponse.success(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GptHttpResponse.fail("Destination folder not found",null);
+        }
+    }
+
     @GetMapping("generate")
     private GptHttpResponse generate(@RequestParam(value = "prePrompt", required = true) String prePrompt) {
         try {

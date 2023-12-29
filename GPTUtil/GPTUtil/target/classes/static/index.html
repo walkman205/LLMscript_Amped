@@ -13,7 +13,7 @@
     <span style="color: red;font-size: 30px;font-weight: bold;position: absolute;top:15%;left: 2%">PROMPT TEST UTIL</span>
 </div>
 `
-<div style="position: absolute;width: 55%;height: 15%;top:10%">
+<div style="position: absolute;width: 55%;height: 25%;top:10%">
     <label class="layui-form-label">Questions:</label>
     <div class="layui-input-block">
         <input id="questionPath" type="text" name="title" required lay-verify="required" placeholder="Please enter the question path to the resource folder
@@ -32,27 +32,46 @@
     <form class="layui-form" action="" style="position: absolute;top:100%;left:0%">
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <input id="gpt3" type="checkbox" name="like[write]" title="gpt3.5" checked>
-                <input id="gpt4" type="checkbox" name="like[write]" title="gpt4" checked>
+                <input id="gpt3" type="checkbox" name="like[write]" title="gpt3.5">
+                <input id="gpt4" type="checkbox" name="like[write]" title="gpt4">
                 <input id="gpt4v" type="checkbox" name="like[read]" title="gpt4v">
+                <input id="local" type="checkbox" name="like[read]" title="local">
+                <input id="cloud" type="checkbox" name="like[read]" title="cloud">
             </div>
         </div>
     </form>
 
+    <div style="position: absolute;top: 65%">
+        <label class="layui-form-label">LocalName:</label>
+        <div class="layui-input-block">
+            <input id="localName" type="text" name="title" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div style="position: absolute;top: 65%;left: 35%">
+        <label class="layui-form-label">CloudName:</label>
+        <div class="layui-input-block">
+            <input id="cloudName" type="text" name="title" required lay-verify="required" placeholder="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
     <!--<button id="folderPathButton" style="position: absolute;left: 55%;top:40%;width: 100px" class="layui-btn">选择文件夹-->
     <!--</button>-->
 
     <div>
-        <button class="layui-btn" style="position: absolute;left: 70%;top:100%;width: 100px" onclick="check()">check
+        <button class="layui-btn" style="position: absolute;left: 70%;top:100%;width: 70px" onclick="check()">check
         </button>
     </div>
     <div>
         <button id="generate" class="layui-btn layui-btn-disabled"
-                style="background-color: #5FB878;position: absolute;left: 85%;top:100%;width: 100px"
+                style="background-color: #5FB878;position: absolute;left: 80%;top:100%;width: 90px"
                 onclick="generateSocket()">generate
         </button>
-    </div>
 
+    </div>
+    <button id="stop" class="layui-btn"
+            style="background-color: #b81a00;position: absolute;left: 92%;top:100%;width: 90px;"
+            onclick="stop()">interrupt
+    </button>
 </div>
 
 <!--<div style="position: absolute;width: 52%;height: 30%;top:33%;left: 3%">-->
@@ -60,7 +79,7 @@
                    <!--placeholder="Please input prePrompt" autocomplete="off" class="layui-input"></textarea>-->
 <!--</div>-->
 
-<div style="position: absolute;width: 25%;height: 62%;top:33%;left: 3%">
+<div style="position: absolute;width: 25%;height: 62%;top:43%;left: 3%">
     <div class="layui-card" style="height:100%;width: 100%;overflow-y: scroll;border: 2px solid #e6e2f1;">
         <div class="layui-card-header">Question Files</div>
         <div id="questionShow" class="layui-card-body">
@@ -68,7 +87,7 @@
     </div>
 </div>
 
-<div style="position: absolute;width: 25%;height: 62%;top:33%;left: 30%">
+<div style="position: absolute;width: 25%;height: 62%;top:43%;left: 30%">
     <div class="layui-card" style="height:100%;width: 100%;overflow-y: scroll;border: 2px solid #e6e2f1;">
         <div class="layui-card-header">Preprompt Files</div>
         <div id="prepromptShow" class="layui-card-body">
@@ -94,7 +113,25 @@
                 console.log('文件夹路径：' + folderPath);
             }).click();
         });
-    })
+    });
+    
+    function stop() {
+        $.ajax({
+            url: "http://127.0.0.1:9999/gpt/stop",
+            type: "GET",
+            headers: {'Content-Type': 'application/json'},
+            success: function (res) {
+                if (res.code == 1) {
+                    layer.msg("Stop Success!")
+                } else {
+                    layer.msg("Stop Fail!")
+                }
+            },
+            error: function (e) {
+                console.info("error: " + e.responseText);
+            }
+        })
+    }
 
     //check
     function check() {
@@ -110,25 +147,31 @@
             return;
         }
 
-        var checkbox1 = document.getElementById("gpt3");
-        var isChecked1 = checkbox1.checked;
 
-        var checkbox2 = document.getElementById("gpt4");
-        var isChecked2 = checkbox2.checked;
+        var gpt3 = document.getElementById("gpt3").checked;
+        var gpt4 = document.getElementById("gpt4").checked;
+        var gpt4v = document.getElementById("gpt4v").checked;
+        var local = document.getElementById("local").checked;
+        var cloud = document.getElementById("cloud").checked;
 
-        var checkbox3 = document.getElementById("gpt4v");
-        var isChecked3 = checkbox3.checked;
+        var localName = $("#localName").val();
+        var cloudName = $("#cloudName").val();
+
 
         var checkData = {
-            gpt3: isChecked1,
-            gpt4: isChecked2,
-            gpt4v: isChecked3
+            gpt3: gpt3,
+            gpt4: gpt4,
+            gpt4v: gpt4v,
+            local: local,
+            cloud: cloud
         };
 
         var data = {
             questionPath: questionPath,
             prepromptPath: prepromptPath,
-            checkData: checkData
+            checkData: checkData,
+            localName:localName,
+            cloudName:cloudName
         };
 
         console.log(data)

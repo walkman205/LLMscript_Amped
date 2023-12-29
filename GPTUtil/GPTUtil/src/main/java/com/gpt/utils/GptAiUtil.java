@@ -54,7 +54,8 @@ public class GptAiUtil {
         if (type == 1) {
             //gpt3.5模型
             if (gpt35Key == null) {
-                throw new RuntimeException("key获取失败");
+            //    throw new RuntimeException("key获取失败");
+                throw new RuntimeException("failed to get key for GPT3.5");
             }
             HashMap<String, Object> reqMap = new HashMap<>();
             reqMap.put("model", gpt35Model);
@@ -73,7 +74,8 @@ public class GptAiUtil {
         } else if (type == 2) {
             //gpt4模型
             if (gpt4FileKey==null){
-                throw new RuntimeException("key获取失败");
+            //    throw new RuntimeException("key获取失败");
+                throw new RuntimeException("failed to get key for GPT4");
             }
             HashMap<String, Object> reqMap = new HashMap<>();
             reqMap.put("model", gpt4Model);

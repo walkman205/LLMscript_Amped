@@ -12,4 +12,8 @@ public class CheckBean {
     private String prepromptPath;
 
     private HashMap<String, Boolean> checkData;
+
+    private String localName;
+
+    private String cloudName;
 }

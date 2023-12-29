@@ -26,7 +26,8 @@ import java.util.HashMap;
 @Data
 public class HttpUtil {
     public String post(String url, String key, String json) throws IOException {
-        System.out.println("发送json："+json);
+        System.out.println("sending json："+json);
+    //    System.out.println("发送 json："+json);
         StringBuilder res = new StringBuilder();
         String content = "";
         try {
@@ -86,7 +87,8 @@ public class HttpUtil {
     }
 
     public String postFile(String url, String key, String preprompt, File promptFile) {
-        System.out.println("发送 preprompt："+ preprompt);
+    //    System.out.println("发送 preprompt："+ preprompt);
+        System.out.println("sending preprompt："+ preprompt);
         StringBuilder res = new StringBuilder();
         String content = "";
         try {

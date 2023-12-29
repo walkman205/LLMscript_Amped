@@ -1,0 +1,7 @@
+Version A:
+[image of nine round chips, labeled 1 through 9]
+The chips shown above, as well as the chips shown to your collaboration partner, are placed in a sack and then mixed up. Mary draws one chip from the sack. What is the probability that Mary draws a chip with an even number?
+
+Version B:
+[image of nine round chips, labeled 1 through 9]
+The chips shown above, as well as the chips shown to your collaboration partner, are placed in a sack and then mixed up. Mary draws one chip from the sack. What is the probability that Mary draws a chip with an even number?
