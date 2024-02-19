@@ -1,0 +1,2 @@
+Verdict: Pass
+Reason: This exercise requires collaboration between Student A and Student B to solve the problem. Student A knows that one block on their scale is heavier than the given weights, while Student B knows that three blocks on their scale is lighter than the given weights. Both students need to communicate their observations to determine the weight of one metal block. The information given to each student is complementary and they cannot solve the problem independently.

@@ -1,0 +1,3 @@
+Verdict: Pass
+
+Reason: This exercise requires collaboration between Student A and Student B to find the area of the shaded portion of the garden. Student A sees a diagram of the garden with one side labeled X and the other side labeled Y, and a white stripe going through it representing the path. Student A needs to determine the length of either X or Y to calculate the area of the shaded portion. On the other hand, Student B sees the same diagram but needs to determine the dimensions of the path to calculate the area of the shaded portion. Therefore, in order to accurately calculate the area, both Student A and Student B need to communicate their respective information to each other.

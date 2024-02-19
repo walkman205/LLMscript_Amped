@@ -1,0 +1,2 @@
+Verdict: Pass
+Reason: In order to calculate the probability of Mary drawing a chip with an even number, Student A needs to know which chips are in the sack. By sharing the information about the chips they have, Student A and Student B will have a complete set of chips to work with to determine the probability of drawing an even number. This exercise requires collaboration between the students because each of them has a subset of the chips needed to calculate the probability successfully.

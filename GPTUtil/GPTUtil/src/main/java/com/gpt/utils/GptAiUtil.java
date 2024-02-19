@@ -34,6 +34,25 @@ public class GptAiUtil {
     @Autowired
     private HttpUtil httpUtil;
 
+    public void setGpt35Key(String gpt35Key) {
+        this.gpt35Key = gpt35Key;
+    }
+
+    public void setGpt4Key(String gpt4Key) {
+        this.gpt4Key = gpt4Key;
+    }
+
+    public void setGpt4FileKey(String gpt4FileKey) {
+        this.gpt4FileKey = gpt4FileKey;
+    }
+
+    public void setLocalUrl(String localUrl) {
+        this.localUrl = localUrl;
+    }
+
+    public void setCloudUrl(String cloudUrl) {
+        this.cloudUrl = cloudUrl;
+    }
 
     /**
      * @param type 模型类型
