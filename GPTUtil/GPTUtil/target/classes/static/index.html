@@ -14,6 +14,7 @@
 </div>
 `
 <div style="position: absolute;width: 55%;height: 25%;top:10%">
+    <!--
     <label class="layui-form-label">Questions:</label>
     <div class="layui-input-block">
         <input id="questionPath" type="text" name="title" required lay-verify="required" placeholder="Please enter the question path to the resource folder
@@ -26,6 +27,12 @@
             <input id="prepromptPath" type="text" name="title" required lay-verify="required" placeholder="Please enter the preprompt path to the resource folder
 " autocomplete="off" class="layui-input">
         </div>
+    </div>-->
+
+    <label class="layui-form-label">Resource Path:</label>
+    <div class="layui-input-block">
+        <input id="resourcePath" type="text" name="title" required lay-verify="required" placeholder="Please enter the path of the resource folder
+" autocomplete="off" class="layui-input">
     </div>
 
 
@@ -58,11 +65,11 @@
     <!--</button>-->
 
     <div>
-        <button class="layui-btn" style="position: absolute;left: 70%;top:100%;width: 70px" onclick="check()">check
+        <button id="check" class="layui-btn" style="position: absolute;left: 70%;top:100%;width: 70px" onclick="check()">check
         </button>
     </div>
     <div>
-        <button id="generate" class="layui-btn layui-btn-disabled"
+        <button id="generate" class="layui-btn"
                 style="background-color: #5FB878;position: absolute;left: 80%;top:100%;width: 90px"
                 onclick="generateSocket()">generate
         </button>
@@ -105,6 +112,10 @@
 
 
 <script>
+
+    var allInputList = ['resourcePath', 'gpt3', 'gpt4', 'gpt4v', 'local', 'cloud', 'localName', 'cloudName', 'check', 'generate', 'stop'];
+    var allInputMap = {};
+
     $(document).ready(function () {
         $('#folderPathButton').click(function () {
             // 弹出文件选择对话框
@@ -113,13 +124,32 @@
                 console.log('文件夹路径：' + folderPath);
             }).click();
         });
+        for (var id of allInputList) {
+          allInputMap[id] = $("#" + id);
+        }
+        toggleInputClass(false, ['generate', 'stop']);
     });
+
+    function toggleInputClass(enabled, ids) {
+      for (var id of ids) {
+        if (allInputMap[id]) {
+          if (enabled) {
+            allInputMap[id].removeClass("layui-btn-disabled").attr("disabled", false);
+          } else {
+            allInputMap[id].addClass("layui-btn-disabled").attr("disabled", true);
+          }
+        }
+      }
+    }
     
     function stop() {
         $.ajax({
             url: "http://127.0.0.1:9999/gpt/stop",
             type: "GET",
             headers: {'Content-Type': 'application/json'},
+            beforeSend: function() {
+              toggleInputClass(false, ['resourcePath', 'gpt3', 'gpt4', 'gpt4v', 'local', 'cloud', 'localName', 'cloudName', 'check', 'generate', 'stop']);
+            },
             success: function (res) {
                 if (res.code == 1) {
                     layer.msg("Stop Success!")
@@ -129,33 +159,30 @@
             },
             error: function (e) {
                 console.info("error: " + e.responseText);
+            },
+            complete: function() {
+              toggleInputClass(true, ['resourcePath', 'gpt3', 'gpt4', 'gpt4v', 'local', 'cloud', 'localName', 'cloudName', 'check']);
             }
         })
     }
 
     //check
     function check() {
-        var questionPath = $("#questionPath").val();
-        var prepromptPath = $("#prepromptPath").val();
+        var resourcePath = allInputMap.resourcePath.val();
 
-        if (questionPath == null || questionPath == '') {
-            layer.msg("Please input question path!");
-            return;
-        }
-        if (prepromptPath == null || prepromptPath == '') {
-            layer.msg("Please input preprompt path!");
+        if (resourcePath == null || resourcePath == '') {
+            layer.msg("Please input resource path!");
             return;
         }
 
+        var gpt3 = allInputMap.gpt3.is(':checked');
+        var gpt4 = allInputMap.gpt4.is(':checked');
+        var gpt4v = allInputMap.gpt4v.is(':checked');
+        var local = allInputMap.local.is(':checked');
+        var cloud = allInputMap.cloud.is(':checked');
 
-        var gpt3 = document.getElementById("gpt3").checked;
-        var gpt4 = document.getElementById("gpt4").checked;
-        var gpt4v = document.getElementById("gpt4v").checked;
-        var local = document.getElementById("local").checked;
-        var cloud = document.getElementById("cloud").checked;
-
-        var localName = $("#localName").val();
-        var cloudName = $("#cloudName").val();
+        var localName = allInputMap.localName.val();
+        var cloudName = allInputMap.cloudName.val();
 
 
         var checkData = {
@@ -167,11 +194,10 @@
         };
 
         var data = {
-            questionPath: questionPath,
-            prepromptPath: prepromptPath,
+            resourcePath: resourcePath,
             checkData: checkData,
-            localName:localName,
-            cloudName:cloudName
+            localName: localName,
+            cloudName: cloudName
         };
 
         console.log(data)
@@ -181,6 +207,9 @@
             type: "POST",
             data: JSON.stringify(data),
             headers: {'Content-Type': 'application/json'},
+            beforeSend: function() {
+              toggleInputClass(false, ['resourcePath', 'gpt3', 'gpt4', 'gpt4v', 'local', 'cloud', 'localName', 'cloudName', 'check', 'generate', 'stop']);
+            },
             success: function (res) {
                 if (res.code == 1) {
                     //找到目标下文件夹则展示
@@ -199,17 +228,19 @@
                         prepromtStr += currentFile + "<br>";
                     }
                     $("#prepromptShow").html(prepromtStr);
-                    $("#generate").removeClass("layui-btn-disabled").attr("disabled", false);
+                    toggleInputClass(true, ['generate']);
                 } else {
                     //目标文件未找到或无符合条件的文件
                     layer.msg(res.msg);
                     $("#questionShow").html("");
                     $("#prepromptShow").html("");
-                    $("#generate").addClass("layui-btn-disabled");
                 }
             },
             error: function (e) {
                 console.info("error: " + e.responseText);
+            },
+            complete: function() {
+                toggleInputClass(true, ['resourcePath', 'gpt3', 'gpt4', 'gpt4v', 'local', 'cloud', 'localName', 'cloudName', 'check']);
             }
         })
     };
@@ -233,6 +264,8 @@
         socket.onopen = function (event) {
             console.log("WebSocket connection opened:", event);
             socket.send("");
+            toggleInputClass(false, ['resourcePath', 'gpt3', 'gpt4', 'gpt4v', 'local', 'cloud', 'localName', 'cloudName', 'check', 'generate']);
+            toggleInputClass(true, ['stop']);
             // var prePrompt = $("#prePrompt").val();
             // if (prePrompt != null && prePrompt != "") {
             //     socket.send(prePrompt);
@@ -241,8 +274,10 @@
             //     layer.msg("Please input preprompt!");
             // }
         };
-
-
+        socket.onclose = function() {
+          toggleInputClass(true, ['resourcePath', 'gpt3', 'gpt4', 'gpt4v', 'local', 'cloud', 'localName', 'cloudName', 'check']);
+          toggleInputClass(false, ['generate', 'stop']);
+        }
     }
 
     //generate

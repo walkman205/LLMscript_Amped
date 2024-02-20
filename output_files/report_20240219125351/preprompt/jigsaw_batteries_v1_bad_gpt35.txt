@@ -1,0 +1,2 @@
+Verdict: Pass
+Reason: In order to estimate the total number of faulty batteries produced today, both students need to understand the concept of sampling. The sample is used to estimate the proportion of faulty batteries in the total production. By discussing how to use the sample information to estimate the total number of faulty batteries, the students will need to collaborate and share their reasoning to arrive at the best estimate.

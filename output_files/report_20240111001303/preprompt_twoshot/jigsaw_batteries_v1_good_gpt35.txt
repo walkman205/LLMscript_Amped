@@ -1,0 +1,2 @@
+Verdict: Pass
+Reason: This exercise meets the requirement because it can only be solved if Student A and Student B share information with each other. Student A knows the size of the sample that was tested but does not know the total number of batteries produced by the factory each day, while Student B knows the total number of batteries produced but does not know the size of the sample that was tested. They need to communicate this information to each other to estimate the total number of faulty batteries produced today.

@@ -13,6 +13,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class GptServiceImpl {
@@ -30,6 +32,7 @@ public class GptServiceImpl {
 
     private Boolean stopFlag = false;
 
+    private static Pattern pattern = Pattern.compile("Verdict:\\s*\\[?(pass|fail)\\]?\n", Pattern.CASE_INSENSITIVE);
 
     /**
      * 获取 prompt 文件列表
@@ -231,8 +234,7 @@ public class GptServiceImpl {
                                 }
                             }
                             //获取模型结果
-                            String result = sendRes.substring(sendRes.indexOf("Verdict: ") + 9, sendRes.indexOf("Verdict: ") + 13);
-                            reportMap.put("gpt3.5", result);
+                            reportMap.put("gpt3.5", getResult(sendRes));
                             //session.getBasicRemote().sendText(name + " 调用模型gpt3.5处理成功");
                             session.getBasicRemote().sendText(name + " successful for model 3.5");
                         } catch (IOException e) {
@@ -292,8 +294,7 @@ public class GptServiceImpl {
                             }
                         }
                         //获取模型结果
-                        String result = sendRes.substring(sendRes.indexOf("Verdict: ") + 9, sendRes.indexOf("Verdict: ") + 13);
-                        reportMap.put("gpt4.0", result);
+                        reportMap.put("gpt4.0", getResult(sendRes));
                     //    session.getBasicRemote().sendText(name + " 调用模型gpt4.0处理成功");
                         session.getBasicRemote().sendText(name + " successful for gpt4.0");
                     } catch (Exception e) {
@@ -339,8 +340,7 @@ public class GptServiceImpl {
                             }
                         }
                         //获取模型结果
-                        String result = sendRes.substring(sendRes.indexOf("Verdict: ") + 9, sendRes.indexOf("Verdict: ") + 13);
-                        reportMap.put("gpt4.0", result);
+                        reportMap.put("gpt4.0", getResult(sendRes));
                         session.getBasicRemote().sendText(name + " 调用模型gpt4.0处理成功");
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -387,8 +387,7 @@ public class GptServiceImpl {
                             }
                         }
                         //获取模型结果
-                        String result = sendRes.substring(sendRes.indexOf("Verdict: ") + 9, sendRes.indexOf("Verdict: ") + 13);
-                        reportMap.put("local", result);
+                        reportMap.put("local", getResult(sendRes));
                     //    session.getBasicRemote().sendText(name + " 调用模型local处理成功");
                         session.getBasicRemote().sendText(name + " successful for local model");
                     } catch (Exception e) {
@@ -438,8 +437,7 @@ public class GptServiceImpl {
                             }
                         }
                         //获取模型结果
-                        String result = sendRes.substring(sendRes.indexOf("Verdict: ") + 9, sendRes.indexOf("Verdict: ") + 13);
-                        reportMap.put("cloud", result);
+                        reportMap.put("cloud", getResult(sendRes));
                     //    session.getBasicRemote().sendText(name + " 调用模型cloud处理成功");
                         session.getBasicRemote().sendText(name + " successful for cloud model");
                     } catch (Exception e) {
@@ -487,6 +485,7 @@ public class GptServiceImpl {
                 try {
                 //    session.getBasicRemote().sendText("******报告生成失败******");
                     session.getBasicRemote().sendText("******failed to generate report******");
+                    session.close();
                     return;
                 } catch (IOException e1) {
                     e1.printStackTrace();
@@ -501,6 +500,7 @@ public class GptServiceImpl {
         try {
         //    session.getBasicRemote().sendText("******报告生成成功，任务结束******");
             session.getBasicRemote().sendText("******successfully generating report，mission complete******");
+            session.close();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
@@ -514,8 +514,17 @@ public class GptServiceImpl {
         try {
         //    session.getBasicRemote().sendText("******程序中断，任务结束******");
             session.getBasicRemote().sendText("******software terminated，mission complete******");
+            session.close();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
+    }
+
+    private String getResult(String sendRes) {
+        Matcher matcher = pattern.matcher(sendRes);
+        if (matcher.find()) {
+            return matcher.group(1).toUpperCase();
+        }
+        return "UNKNOWN";
     }
 }
