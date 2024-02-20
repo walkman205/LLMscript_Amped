@@ -1,2 +1,0 @@
-Verdict: Pass
-Reason: In order to determine the best estimate for the total number of faulty batteries produced today, Student A and Student B would need to collaborate. Student A would have the information that 2 batteries failed the quality test, while Student B would have the information that a sample of 200 batteries was drawn from the production line. They would need to communicate and combine their information to come up with the best estimate.

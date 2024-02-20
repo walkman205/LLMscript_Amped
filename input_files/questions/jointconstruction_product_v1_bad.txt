@@ -1,5 +1,15 @@
 Version A:
+
 Find two numbers whose product is 300 and their sum is maximal.
 
+1st number:
+2nd number:
+
+
 Version B:
+
 Find two numbers whose product is 300 and their sum is maximal.
+
+
+1st number:
+2nd number:

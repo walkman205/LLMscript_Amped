@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: This exercise does not meet the requirement for collaboration between students because both students have the same list of values to select from and can work independently to arrive at the correct answer. Each student only needs to know four of the values in the list to calculate the average, and they can do so individually without communicating. The exercise does not require the students to share information or cooperate in order to solve the problem.

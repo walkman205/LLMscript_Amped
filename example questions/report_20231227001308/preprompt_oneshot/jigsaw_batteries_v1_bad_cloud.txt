@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: This exercise does not meet the requirement for student collaboration because both students are presented with the same information, and they can solve the problem independently without any need for communication. They are given the total number of batteries produced and the number of failing batteries in the sample, and they can use this information to calculate the best estimate for the total number of faulty batteries produced today. There is no complementary information held by one student that the other student does not have.

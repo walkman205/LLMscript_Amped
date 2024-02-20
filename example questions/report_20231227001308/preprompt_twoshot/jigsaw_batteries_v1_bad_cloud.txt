@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: This exercise fails the requirement since each student can solve the problem without needing to communicate or collaborate with the other. Both students have the same information: the total number of batteries produced each day, the sample size, and the number of failed batteries. They can simply divide the number of failed batteries by the sample size and then multiply by the total number of batteries produced to get the estimate for the total number of faulty batteries. There is no need for collaboration or communication to solve this problem.

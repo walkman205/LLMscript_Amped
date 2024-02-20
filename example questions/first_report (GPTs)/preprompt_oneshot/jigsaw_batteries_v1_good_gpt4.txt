@@ -1,2 +1,0 @@
-Verdict: Pass
-Reason: The exercise requires both students A and B to collaborate in order to provide an accurate estimate of the total number of faulty batteries produced. Student A has information about the number of batteries in the sample and the number of faulty ones, while Student B has information on the total number of batteries produced each day. They need to combine this information to calculate the estimate, so they cannot solve the problem without communicating with each other.

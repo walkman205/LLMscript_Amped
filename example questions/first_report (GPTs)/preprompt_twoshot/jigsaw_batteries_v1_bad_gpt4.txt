@@ -1,3 +1,0 @@
-Verdict: Fail
-
-Reason: This exercise fails because both versions A and B provide the same information. Therefore, each student can solve their own problem without having to communicate and collaborate with the other student, as they have access to all the data they need to correctly answer the problem independently. The students are not required to share information at all in this case.

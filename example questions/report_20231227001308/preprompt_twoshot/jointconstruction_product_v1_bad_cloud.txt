@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: This exercise fails the requirement since each student can solve the problem independently without needing to communicate or collaborate with the other. The problem asks for two numbers whose product is 300 and has a maximal sum. The numbers are 10 and 30, and the product and sum are both 300. Both students can easily find this solution independently and do not need to communicate.

@@ -1,3 +1,0 @@
- Verdict: fail
-
-Reason: This exercise fails the requirement since each student can solve the problem without needing to communicate or collaborate with the other. In both versions A and B, the students are given the same information about the minute hand turning 600 degrees between time T1 and time T2. They only need to use this information to solve the problem by coming up with possible values for T1 and T2. There is no collaboration required in this exercise since each student can work independently and still get the correct answer.

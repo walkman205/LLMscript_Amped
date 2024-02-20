@@ -1,3 +1,0 @@
-Verdict: Pass
-
-Reason: Both students need to communicate with each other to solve the problem. Student A has the information on the highest temperatures every day whereas Student B has the information on the lowest temperatures. To determine the day with the largest temperature difference, they need to share these temperatures and calculate the difference for each day. Therefore, the problem successfully engenders communication and collaboration between the two students.

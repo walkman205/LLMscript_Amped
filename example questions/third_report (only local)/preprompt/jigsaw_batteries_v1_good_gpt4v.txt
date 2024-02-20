@@ -1,2 +1,0 @@
- Verdict: Fail
-Reason: The exercise can be solved independently by Student A and Student B separately without communicating with each other. Each student only needs to use their own version of the problem and solve it individually. Therefore, the exercise does not require collaboration between the students.

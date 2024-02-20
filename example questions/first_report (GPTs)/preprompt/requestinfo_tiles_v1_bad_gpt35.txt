@@ -1,3 +1,0 @@
-Verdict: Pass
-
-Reason: In order to determine how many red blocks Pat will use in her n+1 attempt, both Student A and Student B need to communicate and share the values they selected for each variable (n, number of black tiles, number of tiles overall, number of tiles Pat has). Individually, they cannot calculate the number of red blocks without knowing the values selected by their partner. Thus, collaboration is required to solve the problem.

@@ -1,3 +1,0 @@
-Verdict: Pass
-
-Reason: The exercise requires Student A and Student B to collaborate in order to solve the problem. Student A has information about the highest temperatures measured each day of the week, while Student B has data on the lowest temperatures measured each day of the week. To calculate the day in which the difference between the highest and lowest temperatures was the highest, both students need to share their information. Without communicating and exchanging information about the highest and lowest temperatures of each day, neither student will be able to identify the day with the biggest temperature difference.

@@ -1,3 +1,0 @@
-Verdict: Pass
-
-Reason: This exercise clearly requires that students A and B communicate and work together. Each student can only choose one piece of information from the list, but solving the problem requires at least two pieces of information; namely, n (the number of times Pat has made patterns) and either how many black tiles were used or how many tiles overall were used. To find the answer, Student A and Student B have to discuss the piece of information each one of them has chosen, and then work together on the mathematical process that leads to the solution. Therefore, neither student can answer the problem correctly by working alone, which means the exercise meets the collaboration requirement.

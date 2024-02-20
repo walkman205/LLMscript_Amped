@@ -13,7 +13,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="GPTUtil" options="-bootclasspath $USER_HOME$/.jdks/semeru-1.8.0_402/jre/jre/lib/rt.jar" />
+      <module name="GPTUtil" options="-bootclasspath $USER_HOME$/Library/Java/JavaVirtualMachines/corretto-1.8.0_392/Contents/Home/jre/jre/lib/rt.jar" />
     </option>
   </component>
 </project>

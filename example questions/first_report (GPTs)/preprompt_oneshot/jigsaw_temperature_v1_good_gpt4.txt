@@ -1,2 +1,0 @@
-Verdict: Pass
-Reason: This exercise requires the students to share information they have for it to be solved. Student A has the highest temperatures for each day and needs the lowest temperatures to calculate the difference, while Student B has the lowest temperatures of each day and requires the highest temperatures to solve the problem. The students must communicate and exchange their data to find the day with the highest temperature difference.

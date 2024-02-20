@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: This exercise does not meet the requirement, as both students have the same information and they can solve it independently without communicating. They both have the size of the sample that was tested (200 batteries) and the number of faulty batteries found in the sample (2). They can calculate the best estimate for the total number of faulty batteries produced today using this information alone. There is no need for collaboration or sharing information between the students to solve this problem.

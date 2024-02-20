@@ -1,3 +1,0 @@
-Verdict: Fail
-
-Reason: Both versions A and B have the same information. They are only required to enter different times (T1 and T2), but nothing prevents them from figuring out a possible T1 and T2 independently. No actual collaboration or communication between the two students is necessary to solve the problem. Each student can easily work out a solution based solely on the given information in their respective versions. The exercise thus fails as it does not require the students to collaborate or communicate with each other to find a solution.

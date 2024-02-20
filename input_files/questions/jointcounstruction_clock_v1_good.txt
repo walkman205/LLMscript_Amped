@@ -1,7 +1,0 @@
-Version A:
-The minute hand of a clock turns 600 degrees between time T1 and time T2 of the same day. Together with your partner, come up with a possible value for T1 and T2.
-Enter the time T1, your partner will enter the time T2.
-
-Version B:
-The minute hand of a clock turns 600 degrees between time T1 and time T2 of the same day. Together with your partner, come up with a possible value for T1 and T2.
-Enter the time T2, your partner will enter the time T1.

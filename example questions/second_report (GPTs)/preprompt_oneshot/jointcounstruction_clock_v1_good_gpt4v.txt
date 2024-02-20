@@ -1,5 +1,0 @@
- Verdict: fail
-
-Reason: In this exercise, Student A can solve the problem independently without any collaboration or communication with Student B. They only need to know that the minute hand turns 60 degrees per minute and then use basic arithmetic to calculate the possible values for T1 and T2 based on the total number of degrees turned (600 degrees) by the minute hand.
-
-The exercise can be passed if the problem statement requires some level of collaboration or communication between Student A and Student B, such as if they have different information that they need to share with each other in order to solve the problem.

@@ -1,2 +1,0 @@
-Verdict: pass
-Reason: In order to solve this problem, Student A and Student B need to communicate with each other to determine a possible range of times for T1 and T2. By having Student A enter the time T1 and Student B enter the time T2, they are each only aware of one of the times. They will need to discuss and determine the relationship between T1 and T2 such that the minute hand turns 600 degrees between those two times. This requires collaboration between the students to find the correct answer.

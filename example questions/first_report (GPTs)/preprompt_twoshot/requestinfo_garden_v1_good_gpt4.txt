@@ -1,3 +1,0 @@
-Verdict: Pass
-
-Reason: This exercise requires both Student A and Student B to collaborate in order to solve the problem. Each student has to select different information from the list (length, breadth, dimensions, or area) since the information is limited to ONE selection per student. They have to share the information they each selected, to have all the necessary data to calculate the area of the shaded portion of the garden. Without communicating and sharing, neither of the students can solve the problem on their own.

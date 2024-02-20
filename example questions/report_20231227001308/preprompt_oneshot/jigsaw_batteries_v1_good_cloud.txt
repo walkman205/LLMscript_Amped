@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: This exercise fails the requirement because it is possible for Student A and Student B to work separately, independently, and without communicating and still each get the correct answer. Student A can calculate the faulty battery rate as 2 failures in 200 batteries, which is 0.01. Student B can multiply this rate by the total number of batteries produced (100,000) to get the best estimate of total faulty batteries, also without communication. Therefore, collaboration is not necessary for the students to solve this problem.

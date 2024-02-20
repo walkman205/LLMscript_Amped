@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: The exercise fails the evaluation criteria because each student can independently solve the problem without needing to communicate with their partner. Both students have the same problem to solve, and they can find the solution by simply recalling that the numbers are 10 and 30, or -15 and -20. They do not need to communicate or collaborate to get the correct answer.

@@ -1,2 +1,0 @@
-Verdict: Pass
-Reason: The exercise requires collaboration between Student A and Student B. Student A knows the size of the sample that was tested, and Student B knows the total production of batteries per day. They both need to communicate this information to each other to be able to estimate the total number of faulty batteries produced in a day. Neither student can solve this question alone as they each hold a piece of necessary information that the other doesn't have.

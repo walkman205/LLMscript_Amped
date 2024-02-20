@@ -1,3 +1,0 @@
- Verdict: Pass
-
-Reason: This exercise requires Student A and Student B to collaborate in order to solve the problem, as they need to share information and communicate with each other about which numbers they are choosing. The fact that the two versions of the exercise are identical indicates that the collaborative aspect is necessary to find the solution.

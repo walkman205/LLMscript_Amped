@@ -1,2 +1,0 @@
-Verdict: pass
-Reason: In order to solve this exercise, Student A (with access to the highest temperatures) and Student B (with access to the lowest temperatures) need to communicate with each other. They cannot determine the day with the highest difference between highest and lowest temperatures by working independently. Student A can't calculate the difference between the highest and lowest temperatures without information about the lowest temperatures, and vice versa. This requires them to collaborate and share information in order to find the correct answer.

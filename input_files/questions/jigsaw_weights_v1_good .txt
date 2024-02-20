@@ -1,9 +1,0 @@
-Version A:
-You and your partner have three metal blocks. They all have the same weight. When you use your scale, to measure them, this is what happened. 
-[image of scales with one block on one end and 8 grams of weights on the other. The scale with the block is higher than the scale with the weights]
-What could be the weight of one metal block?
-
-Version B:
-You and your partner have three metal blocks. They all have the same weight. When you use your scale, to measure them, this is what happened. 
-[image of scales with three blocks on one end and 20 grams of weights on the other. The scale with the blocks is lower than the scale with the weights]
-What could be the weight of one metal block?

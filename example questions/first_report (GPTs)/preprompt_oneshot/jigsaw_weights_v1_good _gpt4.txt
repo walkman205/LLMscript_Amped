@@ -1,3 +1,0 @@
-Verdict: Pass
-
-Reason: In order to determine the weight of each metal block, student A and B need to share the information they have. Student A knows that one block weighs less than 8 grams while student B knows that three blocks weigh more than 20 grams. By communicating this information to each other, they can find a range in which the weight of one block lies. For instance, given the data, one block could weigh between 20/3 and 8 grams. Hence, communication between the students is necessary to solve this problem.

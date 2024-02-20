@@ -1,2 +1,0 @@
-Verdict: Pass 
-Reason: Even though the prompt is the same for both Student A and Student B, each student is asked to input a different value - Student A enters time T1 and Student B enters time T2. The fact that these times have to accommodate a 600-degree rotation of the minute hand of a clock effectively forces them to communicate and collaborate to ensure they come up with valid values for T1 and T2. Therefore, the exercise meets the criteria.

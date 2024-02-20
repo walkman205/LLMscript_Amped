@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: In this exercise, both Student A and Student B are given the same problem, and the information provided is identical. They can easily solve the problem independently by using trial and error or by simply recalling that the two numbers are 10 and 30, or -15 and -20 (considering negative numbers as well). There is no need for collaboration or communication between them to find the correct answer.

@@ -1,3 +1,0 @@
-Verdict: Fail
-
-Reason: The exercise fails the requirement since both students are asked to solve the exact same problem. Each student has all the information they need to solve the problem individually. Therefore, there is no need for Student A and Student B to communicate or collaborate with each other to find the solution.

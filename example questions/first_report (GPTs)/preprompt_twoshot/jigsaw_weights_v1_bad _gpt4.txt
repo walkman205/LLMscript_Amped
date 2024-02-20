@@ -1,3 +1,0 @@
-Verdict: Pass
-
-Reason: This exercise requires the collaboration of student A and student B. Each student can only make one selection from the list provided, and then the result of that selection will be shared with the other. For example, if student A chooses to compare one metal block to all weights together and student B chooses to compare three metal blocks to the 5 gram weight - both will have to compare their measurements and discuss to determine the weight of the metal blocks. This task cannot be accomplished unless both students are communicating and working together.

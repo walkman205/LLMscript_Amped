@@ -1,23 +1,12 @@
 Version A:
-Pat has red and black tiles. She uses the tiles to make patterns. Her first two patterns looks like this:
-[An image of a set of 3*3 tiles, with a black one in the middle and red ones aroud it.]
-[An image of a set of 4*4 tiles, with four black ones in the middle and red ones around it.]
-She continues following a similar pattern n times. How many red blocks will she use in her n + 1 attempt?
 
-To answer this question, you and your partner may each make ONE selections from the following list of values. After you submit your selection, the values you selected will be revealed to you. Use this information to provide your answer in the box below.
-a) What is n?
-b) How many black tiles were used?
-c) How many tiles overall were used?
-d) How many tiles does pat have?
+Pat has red and black tiles. She uses the tiles to make patterns. Her first two patterns look like this:
+[An image of a set of 3*3 tiles, with a black tile in the middle and red tiles around it.]
+[An image of a set of 4*4 tiles, with four black tiles in the middle and red ones around it.]
+She continues following a similar pattern n times. How many red blocks will she use in her (n+1)th attempt?
 
 
-Version B:
-Pat has red and black tiles. She uses the tiles to make patterns. Her first two patterns looks like this:
-[An image of a set of 3*3 tiles, with a black one in the middle and red ones aroud it.]
-[An image of a set of 4*4 tiles, with four black ones in the middle and red ones around it.]
-She continues following a similar pattern n times. How many red blocks will she use in her n + 1 attempt?
-
-To answer this question, you and your partner may each make ONE selections from the following list of values. After you submit your selection, the values you selected will be revealed to you. Use this information to provide your answer in the box below.
+You and your partner can each choose a piece of information that would allow you to solve the problem, and then answer the question.
 a) What is n?
 b) How many black tiles were used?
 c) How many tiles overall were used?

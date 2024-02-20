@@ -1,3 +1,0 @@
-Verdict: Pass
-
-Reason: The exercise is designed in such a way that it requires collaboration between Student A and Student B. They both have the same problem and similar multiple-choice lists, but they can only select one option each. Therefore, they will have to communicate and strategize about the options they should select in order to have the most comprehensive set of data possible to determine the weight of the metal blocks. After making their independent selections, they will need to communicate their findings, collaborate on interpreting the results, and work together to solve the problem. Hence, this exercise passes the evaluation.

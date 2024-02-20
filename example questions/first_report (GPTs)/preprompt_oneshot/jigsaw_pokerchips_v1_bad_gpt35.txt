@@ -1,2 +1,0 @@
-Verdict: Pass
-Reason: This exercise meets the requirement because Student A and Student B need to collaborate in order to solve the problem. They both have the same information and need to communicate with each other to calculate the probability of drawing a chip with an even number. They can each count the number of even chips in their set and the total number of chips in their set, and then combine this information to calculate the probability.

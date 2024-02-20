@@ -1,2 +1,0 @@
-Verdict: Pass
-Reason: This exercise requires collaboration between Student A and Student B because they need to communicate the information from their respective versions to arrive at the best estimate for the total number of faulty batteries produced today. Both students have the same information in their respective versions, but they need to share their information with each other to calculate the estimate. Therefore, they cannot solve the exercise correctly without collaborating.

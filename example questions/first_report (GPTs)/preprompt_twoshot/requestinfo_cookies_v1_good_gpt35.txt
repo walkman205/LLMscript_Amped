@@ -1,3 +1,0 @@
-Verdict: Pass
-
-Reason: This exercise requires Student A and Student B to collaborate in order to solve the problem. Student A can select options A and D, while Student B can select options C and E. After they submit their selections, they can share the information with each other. Student A knows the average number of boxes sold in classes A and the total number of boxes sold in class B, while Student B knows the average number of boxes sold in class B and the number of cookies per box. They need to communicate this information to calculate the average number of boxes sold by all students in both classes.

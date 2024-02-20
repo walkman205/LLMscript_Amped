@@ -1,2 +1,0 @@
-Verdict: Pass
-Reason: This exercise requires Student A and Student B to collaborate in order to solve the problem. Student A needs to input the time for T1, while Student B needs to input the time for T2. They need to communicate with each other to ensure that the times they enter are consistent and make sense in the context of a clock. For example, if Student A inputs 1:00pm for T1, Student B should input 1:20pm for T2, as the minute hand would have turned 600 degrees in that time period. Therefore, they need to collaborate and communicate to come up with a valid solution.

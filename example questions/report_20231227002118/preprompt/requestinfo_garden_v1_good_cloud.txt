@@ -1,2 +1,0 @@
-Verdict: pass
-Reason: Both versions of the exercise require collaboration between the students. In order to find out what information they need to solve the problem, they must communicate with each other and combine the information from both versions. If one student only takes into account their version, they would end up selecting a wrong answer. Additionally, an independent approach would not yield a correct solution as the information is divided between the two images and can only be accessed by communication between the students.

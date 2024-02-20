@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: This exercise does not require the students to collaborate in order to solve the problem. Each partner only needs to make one selection, and they can work separately and independently to determine the weight of the metal blocks. They do not need to communicate with each other to answer correctly.

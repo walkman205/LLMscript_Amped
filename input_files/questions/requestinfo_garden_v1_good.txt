@@ -1,22 +1,17 @@
 Version A:
 [An image of a grey rectangle with its sides marked X and Y. There is a white stripe perpendicular to X going through it.]
 This is a diagram of a rectangular garden. The white area represents a rectangular path going through the garden. 
-What information would you need in order to find the area of the shaded portion of the garden?
-
-To answer this question, you and your partner may each make ONE selections from the following list of values. After you submit your selection, the values you selected will be revealed to you. Use this information to provide your answer in the box below.
-a) The area of one of the shaded parts of the garden
+What information would you need in order to find the area of the shaded portion of the garden? You and your partner should choose one each.
+a) The area of the left shaded parts of the garden
 b) The dimensions of the path
 c) The length of X
 d) The length of Y
 
-
 Version B:
 [An image of a grey rectangle with its sides marked X and Y. There is a white stripe perpendicular to X going through it.]
 This is a diagram of a rectangular garden. The white area represents a rectangular path going through the garden. 
-What information would you need in order to find the area of the shaded portion of the garden?
-
-To answer this question, you and your partner may each make ONE selections from the following list of values. After you submit your selection, the values you selected will be revealed to you. Use this information to provide your answer in the box below.
-a) The area of one of the shaded parts of the garden
+What information would you need in order to find the area of the shaded portion of the garden? You and your partner should choose one each.
+a) The area of the left shaded parts of the garden
 b) The dimensions of the path
 c) The length of X
 d) The length of Y

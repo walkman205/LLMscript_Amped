@@ -1,2 +1,0 @@
-Verdict: fail
-Reason: In this exercise, both Student A and Student B can work independently and still arrive at the correct answer. Student A simply needs to add 600 degrees to T1 to get T2, and vice versa for Student B. There is no need for communication between the students to solve the problem, as they can each calculate the time independently.
