@@ -1,8 +1,0 @@
-Version A:
-[A figure showing the high temperatures measured every day of the week in a certain week in 
-New York City.]
-On which day of the week was the difference between the high and low temperatures the greatest?
-
-Version B:
-[A figure showing the low temperatures measured every day of the week in a certain week in New York City.]
-On which day of the week was the difference between the high and low temperatures the greatest?
