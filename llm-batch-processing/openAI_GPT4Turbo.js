@@ -6,7 +6,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-export async function generateContentOpenAI(prompt) {
+export async function generateContentGPT4Turbo(prompt) {
   try {
     // Use the Chat Completion API
     const response = await openai.chat.completions.create({

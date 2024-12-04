@@ -128,10 +128,11 @@ public class GptServiceImpl {
         }
         String gpt35Key = properties.getProperty("gpt35Key");
         String gpt4Key = properties.getProperty("gpt4Key");
-        String gpt4FileKey = properties.getProperty("gpt4FileKey");
+        String geminiKey = properties.getProperty("geminiKey");
+
+        gptAiUtil.setGeminiKey(geminiKey);
         gptAiUtil.setGpt35Key(gpt35Key);
         gptAiUtil.setGpt4Key(gpt4Key);
-        gptAiUtil.setGpt4FileKey(gpt4FileKey);
         String localUrl = properties.getProperty("localUrl");
         String cloudUrl = properties.getProperty("cloudUrl");
         gptAiUtil.setLocalUrl(localUrl);
@@ -316,16 +317,16 @@ public class GptServiceImpl {
                     stopMsg(session);
                     return;
                 }
-                if (checkBean.getCheckData().get("gpt4v") != null && checkBean.getCheckData().get("gpt4v")) {
+                if (checkBean.getCheckData().get("gemini") != null && checkBean.getCheckData().get("gemini")) {
                     try {
-                        System.out.println("开始调用chatgpt4v");
+                        System.out.println("gemini");
                         String sendRes = gptAiUtil.send(3, promptStr.toString(), prePrompt, promptFile);
                         try {
                             if (sendRes != null) {
-                                Files.write(Paths.get(prepromptReportPath + File.separator + name + "_gpt4v.txt"), sendRes.getBytes());
+                                Files.write(Paths.get(prepromptReportPath + File.separator + name + "_gemini.txt"), sendRes.getBytes());
                             } else {
                                 try {
-                                    session.getBasicRemote().sendText(name + " 调用模型gpt4v处理失败");
+                                    session.getBasicRemote().sendText(name + " gemini ");
                                 } catch (IOException e1) {
                                     e1.printStackTrace();
                                 }
@@ -334,19 +335,19 @@ public class GptServiceImpl {
                             e.printStackTrace();
                             System.out.println("写入失败");
                             try {
-                                session.getBasicRemote().sendText(name + " 调用模型gpt4v处理失败");
+                                session.getBasicRemote().sendText(name + " gemini ");
                             } catch (IOException e1) {
                                 e1.printStackTrace();
                             }
                         }
                         //获取模型结果
-                        reportMap.put("gpt4.0", getResult(sendRes));
-                        session.getBasicRemote().sendText(name + " 调用模型gpt4.0处理成功");
+                        reportMap.put("gemini", getResult(sendRes));
+                        session.getBasicRemote().sendText(name + " gemini");
                     } catch (Exception e) {
                         e.printStackTrace();
-                        System.out.println(name + "调用模型gpt4.0处理失败");
+                        System.out.println(name + "gemini.");
                         try {
-                            session.getBasicRemote().sendText(name + " 调用模型gpt4.0处理失败，原因：" + e.getMessage());
+                            session.getBasicRemote().sendText(name + " gemini，原因：" + e.getMessage());
                         } catch (IOException e1) {
                             e1.printStackTrace();
                         }

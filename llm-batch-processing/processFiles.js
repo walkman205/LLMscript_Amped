@@ -5,7 +5,8 @@ import { getFiles, readFileContent, writeFileContent } from "./fileUtils.js";
 
 import { generateContentAnthropic } from "./anthropicAPI.js";
 import { generateContentGoogle } from "./googleAPI.js";
-import { generateContentOpenAI } from "./openAIAPI.js";
+import { generateContentGPT4o } from "./openAI_GPT4o.js";
+import { generateContentGPT4Turbo } from "./openAI_GPT4Turbo.js";
 
 async function processFiles() {
   try {
@@ -62,9 +63,9 @@ async function processFiles() {
       }
 
       // Process with OpenAI API if enabled
-      if (API_CONFIG.useOpenAI) {
+      if (API_CONFIG.useGPT4o) {
         try {
-          const generatedTextOpenAI = await generateContentOpenAI(content);
+          const generatedTextOpenAI = await generateContentGPT4o(content);
           const outputFileName = `output_openai_${file}`;
           await writeFileContent(
             API_CONFIG.outputDir,
@@ -72,10 +73,29 @@ async function processFiles() {
             generatedTextOpenAI
           );
           console.log(
-            `Processed ${file} with OpenAI API, output saved to ${API_CONFIG.outputDir}/${outputFileName}`
+            `Processed ${file} with OpenAI GPT4o, output saved to ${API_CONFIG.outputDir}/${outputFileName}`
           );
         } catch (apiError) {
-          console.error(`Error processing ${file} with OpenAI API:`, apiError);
+          console.error(`Error processing ${file} with OpenAI GPT4o:`, apiError);
+        }
+      }
+
+
+      // Process with OpenAI API if enabled
+      if (API_CONFIG.useOpenAI) {
+        try {
+          const generatedTextOpenAI = await generateContentGPT4Turbo(content);
+          const outputFileName = `output_openai_${file}`;
+          await writeFileContent(
+            API_CONFIG.outputDir,
+            outputFileName,
+            generatedTextOpenAI
+          );
+          console.log(
+            `Processed ${file} with OpenAI GPT-4-Turbo, output saved to ${API_CONFIG.outputDir}/${outputFileName}`
+          );
+        } catch (apiError) {
+          console.error(`Error processing ${file} with OpenAI GPT-4-Turbo:`, apiError);
         }
       }
     }
