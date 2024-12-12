@@ -7,6 +7,8 @@ import { generateContentAnthropic } from "./anthropicAPI.js";
 import { generateContentGoogle } from "./googleAPI.js";
 import { generateContentGPT4o } from "./openAI_GPT4o.js";
 import { generateContentGPT4Turbo } from "./openAI_GPT4Turbo.js";
+import {generateContentO1Preview} from "./openAI_O1preview.js";
+import {generateContentLLAMA} from "./LLama_openAI_client.js";
 
 async function processFiles() {
   try {
@@ -66,7 +68,7 @@ async function processFiles() {
       if (API_CONFIG.useGPT4o) {
         try {
           const generatedTextOpenAI = await generateContentGPT4o(content);
-          const outputFileName = `output_openai_${file}`;
+          const outputFileName = `${file}_gpt4o`;
           await writeFileContent(
             API_CONFIG.outputDir,
             outputFileName,
@@ -82,10 +84,10 @@ async function processFiles() {
 
 
       // Process with OpenAI API if enabled
-      if (API_CONFIG.useOpenAI) {
+      if (API_CONFIG.useGPT4Turbo) {
         try {
           const generatedTextOpenAI = await generateContentGPT4Turbo(content);
-          const outputFileName = `output_openai_${file}`;
+          const outputFileName = `${file}_gpt4turbo`;
           await writeFileContent(
             API_CONFIG.outputDir,
             outputFileName,
@@ -96,6 +98,31 @@ async function processFiles() {
           );
         } catch (apiError) {
           console.error(`Error processing ${file} with OpenAI GPT-4-Turbo:`, apiError);
+        }
+      }
+
+      // Process with OpenAI API if enabled
+      if (API_CONFIG.useO1preview) {
+        try {
+          const generatedTextOpenAI = await generateContentO1Preview(content);
+          const outputFileName = `${file}_useO1preview`;
+
+          await writeFileContent(API_CONFIG.outputDir, outputFileName, generatedTextOpenAI);
+          console.log(`Processed ${file} with OpenAI O1-preview, output saved to ${API_CONFIG.outputDir}/${outputFileName}`);
+        } catch (apiError) {
+          console.error(`Error processing ${file} with OpenAI O1-preview:`, apiError);
+        }
+      }
+      // Process with LLAMA if enabled
+      if (API_CONFIG.useLLAMA) {
+        try {
+          const generatedTextOpenAI = await generateContentLLAMA(content);
+          const outputFileName = `${file}_useLLAMA`;
+
+          await writeFileContent(API_CONFIG.outputDir, outputFileName, generatedTextOpenAI);
+          console.log(`Processed ${file} with LLAMA, output saved to ${API_CONFIG.outputDir}/${outputFileName}`);
+        } catch (apiError) {
+          console.error(`Error processing ${file} with LLAMA:`, apiError);
         }
       }
     }
