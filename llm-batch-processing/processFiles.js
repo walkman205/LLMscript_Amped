@@ -7,8 +7,9 @@ import { generateContentAnthropic } from "./anthropicAPI.js";
 import { generateContentGoogle } from "./googleAPI.js";
 import { generateContentGPT4o } from "./openAI_GPT4o.js";
 import { generateContentGPT4Turbo } from "./openAI_GPT4Turbo.js";
-import {generateContentO1Preview} from "./openAI_O1preview.js";
-import {generateContentLLAMA} from "./LLama_openAI_client.js";
+import { generateContentO1Preview } from "./openAI_O1preview.js";
+import { generateContentLLAMA } from "./LLama_openAI_client.js";
+import { generateContentLocal } from './localAPIdeepseek.js';
 
 async function processFiles() {
   try {
@@ -26,7 +27,7 @@ async function processFiles() {
           const generatedTextAnthropic = await generateContentAnthropic(
             content
           );
-          const outputFileName = `output_anthropic_${file}`;
+          const outputFileName = `${file}_anthropic`;
           await writeFileContent(
             API_CONFIG.outputDir,
             outputFileName,
@@ -113,6 +114,20 @@ async function processFiles() {
           console.error(`Error processing ${file} with OpenAI O1-preview:`, apiError);
         }
       }
+
+
+      // Local LLM
+      if (API_CONFIG.useLocal) {
+        try {
+          const localText = await generateContentLocal(content);
+          const outputFileName = `${file}_local`;
+          await writeFileContent(API_CONFIG.outputDir, outputFileName, localText);
+          console.log(`Processed ${file} with local LLM.`);
+        } catch (error) {
+          console.error(`Error with local LLM:`, error);
+        }
+      }
+      
       // Process with LLAMA if enabled
       if (API_CONFIG.useLLAMA) {
         try {

@@ -8,6 +8,7 @@ const openai = new OpenAI({
 
 export async function generateContentO1Preview(prompt) {
   try {
+   // Use the Chat Completion API
     const response = await openai.chat.completions.create({
       model: "o1-preview",
       messages: [{ role: "user", content: prompt }],
