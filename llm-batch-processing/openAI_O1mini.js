@@ -8,7 +8,6 @@ const openai = new OpenAI({
 
 export async function generateContentO1Mini(prompt) {
   try {
-   // Use the Chat Completion API
     const response = await openai.chat.completions.create({
       model: "o1-mini",
       messages: [{ role: "user", content: prompt }],
