@@ -21,7 +21,7 @@ public class GptAiUtil {
 
     String gpt4Url = "https://api.openai.com/v1/chat/completions";
     String gpt4Key;
-    String gpt4Model = "gpt-4";
+    String gpt4Model = "o1-preview";
 
     String geminiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent";
 
@@ -101,7 +101,7 @@ public class GptAiUtil {
             }
             reqMap.put("model", gpt4Model);
             HashMap<String, String> msg1 = new HashMap<>();
-            msg1.put("role", "system");
+            msg1.put("role", "user");
             msg1.put("content", preprompt);
             messages.add(msg1);
             HashMap<String, String> msg2 = new HashMap<>();
