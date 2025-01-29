@@ -17,13 +17,21 @@ import java.util.concurrent.*;
 public class GptAiUtil {
     String gpt35Url = "https://api.openai.com/v1/chat/completions";
     String gpt35Key;
-    String gpt35Model = "gpt-3.5-turbo";
+    String gpt35Model = "o1-preview";
 
     String gpt4Url = "https://api.openai.com/v1/chat/completions";
     String gpt4Key;
+<<<<<<< Updated upstream
     String gpt4Model = "o1-preview";
 
     String geminiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent";
+=======
+    String gpt4Model = "gpt-4o";
+
+    String gpt4FileUrl = "https://api.openai.com/v1/chat/completions";
+    String gpt4FileKey;
+    String gpt4FileModel = "gpt-4-turbo";
+>>>>>>> Stashed changes
 
     String geminiKey;
     String geminiModel = "local-model";
@@ -83,7 +91,7 @@ public class GptAiUtil {
             }
             reqMap.put("model", gpt35Model);
             HashMap<String, String> msg1 = new HashMap<>();
-            msg1.put("role", "system");
+            msg1.put("role", "user");
             msg1.put("content", preprompt);
             messages.add(msg1);
             HashMap<String, String> msg2 = new HashMap<>();
@@ -124,6 +132,11 @@ public class GptAiUtil {
             return sendRes;
         } else if (type == 4) {
             //local
+<<<<<<< Updated upstream
+=======
+            HashMap<String, Object> reqMap = new HashMap<>();
+            ArrayList<Object> messages = new ArrayList<>();
+>>>>>>> Stashed changes
             HashMap<String, String> msg1 = new HashMap<>();
             msg1.put("role", "system");
             msg1.put("content", preprompt);
@@ -137,6 +150,11 @@ public class GptAiUtil {
             return sendRes;
         }else if (type == 5) {
             //cloud
+<<<<<<< Updated upstream
+=======
+            HashMap<String, Object> reqMap = new HashMap<>();
+            ArrayList<Object> messages = new ArrayList<>();
+>>>>>>> Stashed changes
             HashMap<String, String> msg1 = new HashMap<>();
             msg1.put("role", "system");
             msg1.put("content", preprompt);
