@@ -34,9 +34,15 @@ public class HttpUtil {
             HttpHost proxy = new HttpHost("127.0.0.1", 7890);
             // 设置连接和套接字超时（单位：毫秒）
             RequestConfig requestConfig = RequestConfig.custom()
+<<<<<<< Updated upstream
                     .setConnectionRequestTimeout(500000)
                     .setConnectTimeout(500000)  // 连接超时时间为30秒
                     .setSocketTimeout(500000)   // 套接字超时时间为30秒
+=======
+                    .setConnectionRequestTimeout(600000)
+                    .setConnectTimeout(600000)  // 连接超时时间为30秒
+                    .setSocketTimeout(600000)   // 套接字超时时间为30秒
+>>>>>>> Stashed changes
 //                    .setProxy(proxy) //TODO 代理
                     .build();
 
