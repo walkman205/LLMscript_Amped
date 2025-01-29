@@ -9,7 +9,7 @@ export async function generateContentLocal(prompt) {
           { role: "user", content: prompt }
         ],
         temperature: 0.7,
-        max_tokens: 2000,  // -1 sometimes indicates 'no limit' in some local LLMs
+        max_tokens: 3000,  // -1 sometimes indicates 'no limit' in some local LLMs
         stream: false
       };
   
