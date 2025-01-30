@@ -16,9 +16,13 @@ compute_metrics <- function(df_subset) {
 }
 
 compute_metrics(ds32)
-compute_metrics(ds70)
-
 ds32 %>%
+  group_by(item_type) %>%
+  do(compute_metrics(.)) %>%
+  ungroup()
+
+compute_metrics(ds70)
+ds70 %>%
   group_by(item_type) %>%
   do(compute_metrics(.)) %>%
   ungroup()

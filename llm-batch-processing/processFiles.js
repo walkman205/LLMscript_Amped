@@ -1,7 +1,7 @@
 // processFiles.js
 import path from "path";
 import fs from "fs/promises";
-import { API_CONFIG } from "./config.js";
+import { API_CONFIG, PROMPT_CONFIG } from "./config.js";
 import { getFiles, readFileContent, writeFileContent } from "./fileUtils.js";
 
 import { generateContentAnthropic } from "./anthropicAPI.js";
@@ -28,7 +28,7 @@ async function Runpreprompt(preprompt,prompt_name) {
         const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "Anthropic");
         await fs.mkdir(modeltDir, { recursive: true });
-        const outputFileName = `${item_name}_output_anthropic.txt`;
+        const outputFileName = `${item_name}_claude35sonnet.txt`;
         const outputPath = path.join(modeltDir, outputFileName);
         await writeFileContent(
             modeltDir,
@@ -53,7 +53,7 @@ async function Runpreprompt(preprompt,prompt_name) {
         const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "Gemini");
         await fs.mkdir(modeltDir, { recursive: true });
-        const outputFileName = `${item_name}_output_gemini.txt`;
+        const outputFileName = `${item_name}_gemini15.txt`;
         const outputPath = path.join(modeltDir, outputFileName);
         await writeFileContent(
             modeltDir,
@@ -126,7 +126,7 @@ async function Runpreprompt(preprompt,prompt_name) {
         const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "o1mini");
         await fs.mkdir(modeltDir, { recursive: true });
-        const outputFileName = `${item_name}_useO1Mini.txt`;
+        const outputFileName = `${item_name}_o1mini.txt`;
         const outputPath = path.join(modeltDir, outputFileName);
 
         await writeFileContent(modeltDir, outputFileName, generatedTextOpenAI);
@@ -139,12 +139,13 @@ async function Runpreprompt(preprompt,prompt_name) {
 
     // Local LLM
     if (API_CONFIG.useLocal) {
+      const localmodelname = API_CONFIG.localModelName;
       try {
         const localText = await generateContentLocal(content);
         const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "local");
         await fs.mkdir(modeltDir, { recursive: true });
-        const outputFileName = `${item_name}_useLocal.txt`;
+        const outputFileName = `${item_name}_${localmodelname}.txt`;
         const outputPath = path.join(modeltDir, outputFileName);
 
         await writeFileContent(modeltDir, outputFileName, localText);
@@ -162,7 +163,7 @@ async function Runpreprompt(preprompt,prompt_name) {
         const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "llama");
         await fs.mkdir(modeltDir, { recursive: true });
-        const outputFileName = `${item_name}_useLLAMA.txt`;
+        const outputFileName = `${item_name}_llama33.txt`;
         const outputPath = path.join(modeltDir, outputFileName);
 
         await writeFileContent(modeltDir, outputFileName, generatedTextOpenAI);
@@ -176,22 +177,22 @@ async function Runpreprompt(preprompt,prompt_name) {
 
 
 
-if (API_CONFIG.ZSP) {
+if (PROMPT_CONFIG.ZSP) {
   const preprompt = `${promptvarieties.ZSP}${promptvarieties.end_of_prompt_snippet}`; // Concatenate preprompts
   await Runpreprompt(preprompt, 'ZSP'); // Pass the preprompt and name to the function
 }
 
-if (API_CONFIG.few_shot_snippet) {
+if (PROMPT_CONFIG.few_shot_snippet) {
   const preprompt = `${promptvarieties.ZSP}${promptvarieties.few_shot_snippet}${promptvarieties.end_of_prompt_snippet}`; // Concatenate preprompts
   await Runpreprompt(preprompt, 'few_shot'); // Pass the preprompt and name to the function
 }
 
-if (API_CONFIG.COT_verdictfirst_snippet) {
+if (PROMPT_CONFIG.COT_verdictfirst_snippet) {
   const preprompt = `${promptvarieties.ZSP}${promptvarieties.COT_verdictfirst_snippet}${promptvarieties.end_of_prompt_snippet}`; // Concatenate preprompts
   await Runpreprompt(preprompt, 'COT_verdictfirst'); // Pass the preprompt and name to the function
 }
 
-if (API_CONFIG.COT_verdictlast_snippet) {
+if (PROMPT_CONFIG.COT_verdictlast_snippet) {
   const preprompt = `${promptvarieties.ZSP}${promptvarieties.COT_verdictlast_snippet}${promptvarieties.end_of_prompt_snippet}`; // Concatenate preprompts
   await Runpreprompt(preprompt, 'COT_verdictlast'); // Pass the preprompt and name to the function
 }

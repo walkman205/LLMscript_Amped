@@ -1,10 +1,13 @@
+import { API_CONFIG } from "./config.js";
 
 import fetch from 'node-fetch';
+
+const modelName = API_CONFIG.localModelName;
 
 export async function generateContentLocal(prompt) {
     try {
       const requestBody = {
-        model: "deepseek-r1-distill-llama-70b",
+        model: modelName,
         messages: [
           { role: "user", content: prompt }
         ],

@@ -1,5 +1,6 @@
 import Papa from 'papaparse';
 import fetch from 'node-fetch';
+import { GDRIVE_CONFIG } from "./config.js";
 
 /**
  * Fetch the CSV file from a public Google Sheets direct-download link.
@@ -44,7 +45,7 @@ async function processCHOPSItems(url) {
 
     // Transform into array of arrays
     const chopsItems = rows.map((row) => [
-        row.itemname,
+        row.item_name,
         row.item_text,
         row.ground_truth,
     ]);
@@ -71,16 +72,12 @@ async function processPromptSnippets(url) {
     return promptSnippets;
 }
 
-const CHOPS_ITEMS_URL =
-    "https://docs.google.com/spreadsheets/d/10X27hD6v5SP5EvbyYb2DE1IG49HMVjOUvAqwHQhfUo0/export?format=csv&gid=0";
 
-const chopsItems = await processCHOPSItems(CHOPS_ITEMS_URL);
+
+const chopsItems = await processCHOPSItems(GDRIVE_CONFIG.CHOPS_ITEMS_URL);
 export { chopsItems };
 
-const PROMPT_SNIPPETS_URL =
-    "https://docs.google.com/spreadsheets/d/1V8urpdL8ZhCYD5PvHmFwwZYRsC-T9Dgj_mwSPHZmeBg/export?format=csv&gid=0";
-
-const promptSnippets = await processPromptSnippets(PROMPT_SNIPPETS_URL);
+const promptSnippets = await processPromptSnippets(GDRIVE_CONFIG.PROMPT_SNIPPETS_URL);
 const promptvarieties = {};
 
 for (const [name, text] of promptSnippets) {
