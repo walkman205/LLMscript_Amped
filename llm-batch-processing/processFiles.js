@@ -11,6 +11,7 @@ import { generateContentGPT4Turbo } from "./openAI_GPT4Turbo.js";
 import {generateContentO1Mini} from "./openAI_O1mini.js";
 import {generateContentLLAMA} from "./LLama_openAI_client.js";
 import {chopsItems,promptvarieties} from "./read_drive_csv.js";
+import { generateContentLocal } from './localAPIdeepseek.js';
 
 
 
@@ -134,6 +135,25 @@ async function Runpreprompt(preprompt,prompt_name) {
         console.error(`Error processing ${item_name} with OpenAI O1-mini:`, apiError);
       }
     }
+
+
+    // Local LLM
+    if (API_CONFIG.useLocal) {
+      try {
+        const localText = await generateContentLocal(content);
+        const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
+        const modeltDir = path.join(prepromptDir, "local");
+        await fs.mkdir(modeltDir, { recursive: true });
+        const outputFileName = `${item_name}_useLocal.txt`;
+        const outputPath = path.join(modeltDir, outputFileName);
+
+        await writeFileContent(modeltDir, outputFileName, localText);
+        console.log(`Processed ${item_name} with locally hosted model, output saved to ${outputPath}`);
+      } catch (apiError) {
+        console.error(`Error processing ${item_name} with local model:`, apiError);
+      }
+    }
+    
     // Process with LLAMA if enabled
     if (API_CONFIG.useLLAMA) {
       try {

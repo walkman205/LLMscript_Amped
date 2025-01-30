@@ -5,3 +5,7 @@ input_files/
 output_files/
 repository/
 *.txt
+/llm-batch-processing/node_modules
+llm-batch-processing/package.json
+llm-batch-processing/package-lock.json
+/llm-batch-processing/node_modules

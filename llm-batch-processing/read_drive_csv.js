@@ -1,4 +1,5 @@
-import Papa from "papaparse";
+import Papa from 'papaparse';
+import fetch from 'node-fetch';
 
 /**
  * Fetch the CSV file from a public Google Sheets direct-download link.

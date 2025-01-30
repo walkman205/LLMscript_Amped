@@ -1,11 +1,12 @@
 // config.js
 export const API_CONFIG = {
-  useAnthropic: true, // Set to true to use the Anthropic API
-  useGemini: true, // Set to true to use the Google Gemini API
+  useAnthropic: false, // Set to true to use the Anthropic API
+  useGemini: false, // Set to true to use the Google Gemini API
   useGPT4Turbo: false,
   useGPT4o: false,
-  useO1Mini: true,
-  useLLAMA: true,
+  useO1Mini: false,
+  useLLAMA: false,
+  useLocal: true,
   inputDir: "items",
   outputDir: "output",
   ZSP: true,
