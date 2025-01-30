@@ -7,7 +7,7 @@ const modelName = API_CONFIG.localModelName;
 export async function generateContentLocal(prompt) {
     try {
       const requestBody = {
-        model: modelName,
+        model: "deepseek-r1-distill-qwen-32b",
         messages: [
           { role: "user", content: prompt }
         ],
@@ -17,7 +17,7 @@ export async function generateContentLocal(prompt) {
       };
   
       // Send the POST request to your local LLM endpoint
-      const response = await fetch("http://localhost:1234/v1/chat/completions", {
+      const response = await fetch("http://127.0.0.1:1234/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -41,3 +41,4 @@ export async function generateContentLocal(prompt) {
     }
   }
   
+

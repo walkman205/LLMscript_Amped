@@ -1,7 +1,7 @@
 // processFiles.js
 import path from "path";
 import fs from "fs/promises";
-import { PROMPT_CONFIG, API_CONFIG} from "./config.js";
+import { PROMPT_CONFIG, API_CONFIG, LOCAL_FILES} from "./config.js";
 import { getFiles, readFileContent, writeFileContent } from "./fileUtils.js";
 
 import { generateContentAnthropic } from "./anthropicAPI.js";
@@ -24,7 +24,7 @@ async function Runpreprompt(preprompt,prompt_name) {
             content
         );
 
-        const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
+        const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "Anthropic");
         await fs.mkdir(modeltDir, { recursive: true });
         const outputFileName = `${item_name}_claude35sonnet.txt`;
@@ -49,7 +49,7 @@ async function Runpreprompt(preprompt,prompt_name) {
     if (API_CONFIG.useGemini) {
       try {
         const generatedTextGoogle = await generateContentGoogle(content);
-        const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
+        const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "Gemini");
         await fs.mkdir(modeltDir, { recursive: true });
         const outputFileName = `${item_name}_gemini15.txt`;
@@ -75,7 +75,7 @@ async function Runpreprompt(preprompt,prompt_name) {
       try {
         const generatedTextOpenAI = await generateContentGPT4o(content);
 
-        const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
+        const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "gpt4o");
         await fs.mkdir(modeltDir, { recursive: true });
         const outputFileName = `${item_name}_gpt4o.txt`;
@@ -99,7 +99,7 @@ async function Runpreprompt(preprompt,prompt_name) {
       try {
         const generatedTextOpenAI = await generateContentGPT4Turbo(content);
 
-        const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
+        const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "gpt4Turbo");
         await fs.mkdir(modeltDir, { recursive: true });
         const outputFileName = `${item_name}_gpt4turbo.txt`;
@@ -122,7 +122,7 @@ async function Runpreprompt(preprompt,prompt_name) {
       try {
         const generatedTextOpenAI = await generateContentO1Mini(content);
 
-        const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
+        const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "o1mini");
         await fs.mkdir(modeltDir, { recursive: true });
         const outputFileName = `${item_name}_o1mini.txt`;
@@ -141,7 +141,7 @@ async function Runpreprompt(preprompt,prompt_name) {
       const localmodelname = API_CONFIG.localModelName;
       try {
         const localText = await generateContentLocal(content);
-        const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
+        const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "local");
         await fs.mkdir(modeltDir, { recursive: true });
         const outputFileName = `${item_name}_${localmodelname}.txt`;
@@ -159,7 +159,7 @@ async function Runpreprompt(preprompt,prompt_name) {
       try {
         const generatedTextOpenAI = await generateContentLLAMA(content);
 
-        const prepromptDir = path.join(API_CONFIG.outputDir, prompt_name);
+        const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "llama");
         await fs.mkdir(modeltDir, { recursive: true });
         const outputFileName = `${item_name}_llama33.txt`;
@@ -188,21 +188,28 @@ COT_verdictlast_snippet
 if (PROMPT_CONFIG.ZSP) {
   const preprompt = `${promptvarieties.ZSP}${promptvarieties.end_of_prompt_verdictfirst}`; // Concatenate preprompts
   await Runpreprompt(preprompt, 'ZSP'); // Pass the preprompt and name to the function
+ // console.log("ZSP: ", preprompt)
 }
 
 if (PROMPT_CONFIG.few_shot_snippet) {
   const preprompt = `${promptvarieties.ZSP}${promptvarieties.few_shot_snippet}${promptvarieties.end_of_prompt_verdictfirst}`; // Concatenate preprompts
   await Runpreprompt(preprompt, 'few_shot'); // Pass the preprompt and name to the function
+ // console.log("Few-Shot: ", preprompt)
+
 }
 
 if (PROMPT_CONFIG.COT_verdictfirst_snippet) {
   const preprompt = `${promptvarieties.ZSP}${promptvarieties.COT_verdictfirst_snippet}${promptvarieties.end_of_prompt_verdictfirst}`; // Concatenate preprompts
   await Runpreprompt(preprompt, 'COT_verdictfirst'); // Pass the preprompt and name to the function
+ // console.log("COT_VF: ", preprompt)
+
 }
 
 if (PROMPT_CONFIG.COT_verdictlast_snippet) {
   const preprompt = `${promptvarieties.ZSP}${promptvarieties.COT_verdictlast_snippet}${promptvarieties.end_of_prompt_verdictlast}`; // Concatenate preprompts
   await Runpreprompt(preprompt, 'COT_verdictlast'); // Pass the preprompt and name to the function
+ // console.log("COT_VL: ", preprompt)
+
 }
 
 

@@ -1,5 +1,5 @@
 import Papa from 'papaparse';
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 import { GDRIVE_CONFIG } from "./config.js";
 
 /**
