@@ -5,9 +5,12 @@ export const API_CONFIG = {
   useGPT4Turbo: false,
   useGPT4o: false,
   useO1Mini: false,
-  useLLAMA: false,
-  llamaVersion: "llama33",
-  useLocal: true,
+  useLlamaAPI: true,
+  //llamaAPImodel: "mixtral8x7b-instruct",
+  // llamaAPImodel: "llama3.3-70b",
+  llamaAPImodel: "deepseek-v3",
+  //llamaAPImodel: "deepseek-r1",
+  useLocal: false,
   //localModelName: "deepseek-r1-distill-llama-8b",
   //localModelName: "deepseek-r1-distill-llama-8b",
   localModelName: "deepseek-r1-distill-qwen-32b",
@@ -16,7 +19,7 @@ export const API_CONFIG = {
 
 export const LOCAL_FILES = {
   inputDir: "items",
-  outputDir: "output30JAN2025"
+  outputDir: "output31JAN2025_2"
 }
 
 export const PROMPT_CONFIG = {
