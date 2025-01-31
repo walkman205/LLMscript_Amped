@@ -161,7 +161,7 @@ async function Runpreprompt(preprompt,prompt_name) {
         const generatedTextOpenAI = await generateContentLLAMA(content);
 
         const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
-        const modeltDir = path.join(prepromptDir, "llama");
+        const modeltDir = path.join(prepromptDir, `${API_CONFIG.llamaAPImodel}`);
         await fs.mkdir(modeltDir, { recursive: true });
         const outputFileName = `${item_name}_${API_CONFIG.llamaAPImodel}.txt`;
         const outputPath = path.join(modeltDir, outputFileName);

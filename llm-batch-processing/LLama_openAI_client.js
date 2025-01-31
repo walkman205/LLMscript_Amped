@@ -14,7 +14,6 @@ export async function generateContentLLAMA(prompt) {
     // Use the Chat Completion API
     const response = await client.chat.completions.create({
       model: modelName,
-//      model: "llama3.3-70b",
       messages: [{ role: "user", content: prompt }],
       max_tokens: 3000,
       temperature: 0.7,
