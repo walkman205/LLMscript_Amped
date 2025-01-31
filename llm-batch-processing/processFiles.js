@@ -155,18 +155,19 @@ async function Runpreprompt(preprompt,prompt_name) {
     }
     
     // Process with LLAMA if enabled
-    if (API_CONFIG.useLLAMA) {
+  
+    if (API_CONFIG.useLlamaAPI) {
       try {
         const generatedTextOpenAI = await generateContentLLAMA(content);
 
         const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
         const modeltDir = path.join(prepromptDir, "llama");
         await fs.mkdir(modeltDir, { recursive: true });
-        const outputFileName = `${item_name}_llama33.txt`;
+        const outputFileName = `${item_name}_${API_CONFIG.llamaAPImodel}.txt`;
         const outputPath = path.join(modeltDir, outputFileName);
 
         await writeFileContent(modeltDir, outputFileName, generatedTextOpenAI);
-        console.log(`Processed ${item_name} with LLAMA, output saved to ${outputPath}`);
+        console.log(`Processed ${item_name} with LlamaAPI (${API_CONFIG.llamaAPImodel}), output saved to ${outputPath}`);
       } catch (apiError) {
         console.error(`Error processing ${item_name} with LLAMA:`, apiError);
       }

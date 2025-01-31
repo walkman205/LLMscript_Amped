@@ -1,5 +1,7 @@
 // openAIAPI.js
 import { OpenAI } from "openai";
+import { API_CONFIG } from "./config.js";
+const modelName = API_CONFIG.llamaAPImodel;
 
 // Initialize the OpenAI client
 const client = new OpenAI({
@@ -11,9 +13,10 @@ export async function generateContentLLAMA(prompt) {
   try {
     // Use the Chat Completion API
     const response = await client.chat.completions.create({
-      model: "llama3.3-70b",
+      model: modelName,
+//      model: "llama3.3-70b",
       messages: [{ role: "user", content: prompt }],
-      max_tokens: 1000,
+      max_tokens: 3000,
       temperature: 0.7,
     });
 
