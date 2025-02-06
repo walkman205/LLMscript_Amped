@@ -12,6 +12,7 @@ import {generateContentO1Mini} from "./openAI_O1mini.js";
 import {generateContentLLAMA} from "./LLama_openAI_client.js";
 import { promptvarieties, chopsItems} from "./read_drive_csv.js";
 import { generateContentLocal } from './localAPIdeepseek.js';
+import {generateContentO1preview} from "./openAI_O1preview.js";
 
 
 async function Runpreprompt(preprompt,prompt_name) {
@@ -135,6 +136,25 @@ async function Runpreprompt(preprompt,prompt_name) {
       }
     }
 
+    // Process with LLAMA if enabled
+
+    if (API_CONFIG.useO1preview) {
+      try {
+        const generatedTextOpenAI = await generateContentO1preview(content);
+
+        const prepromptDir = path.join(LOCAL_FILES.outputDir, prompt_name);
+        const modeltDir = path.join(prepromptDir, "o1preview");
+        await fs.mkdir(modeltDir, { recursive: true });
+        const outputFileName = `${item_name}_o1preview.txt`;
+        const outputPath = path.join(modeltDir, outputFileName);
+
+        await writeFileContent(modeltDir, outputFileName, generatedTextOpenAI);
+        console.log(`Processed ${item_name} with OpenAI O1-preview, output saved to ${outputPath}`);
+      } catch (apiError) {
+        console.error(`Error processing ${item_name} with OpenAI O1-preview:`, apiError);
+      }
+    }
+
 
     // Local LLM
     if (API_CONFIG.useLocal) {
@@ -187,7 +207,7 @@ COT_verdictlast_snippet
 */
 
 if (PROMPT_CONFIG.ZSP) {
-  const preprompt = `${promptvarieties.ZSP}${promptvarieties.end_of_prompt_verdictfirst}`; // Concatenate preprompts
+    const preprompt = `${promptvarieties.ZSP}${promptvarieties.end_of_prompt_verdictfirst}`; // Concatenate preprompts
   await Runpreprompt(preprompt, 'ZSP'); // Pass the preprompt and name to the function
  // console.log("ZSP: ", preprompt)
 }

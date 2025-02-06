@@ -15,7 +15,7 @@ export async function generateContentLLAMA(prompt) {
     const response = await client.chat.completions.create({
       model: modelName,
       messages: [{ role: "user", content: prompt }],
-      max_tokens: 3000,
+      max_tokens: 4000,
       temperature: 0.7,
     });
 

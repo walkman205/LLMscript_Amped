@@ -6,12 +6,12 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-export async function generateContentO1Mini(prompt) {
+export async function generateContentO1preview(prompt) {
   try {
     const response = await openai.chat.completions.create({
-      model: "o1-mini",
+      model: "o1-preview",
       messages: [{ role: "user", content: prompt }],
-      max_completion_tokens: 3000,
+      max_completion_tokens: 5000,
       temperature: 1,
     });
 
