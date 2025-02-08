@@ -12,3 +12,6 @@ llm-batch-processing/package-lock.json
 /llm-batch-processing/output
 llm-batch-processing/package-lock.json
 llm-batch-processing/package.json
+llm-batch-processing/config.js
+llm-batch-processing/package.json
+llm-batch-processing/package-lock.json
